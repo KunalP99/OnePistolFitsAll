@@ -36,4 +36,5 @@ public class PlayerController : MonoBehaviour
         // Moves the object to a new position at a set speed
         rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
     }
+
 }
