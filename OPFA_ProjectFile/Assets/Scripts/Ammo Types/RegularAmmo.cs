@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RegularAmmo : MonoBehaviour
 {
-    // Bullet variables
     public GameObject bulletPrefab;
     public Transform firePoint;
     Animator anim;
@@ -13,6 +12,9 @@ public class RegularAmmo : MonoBehaviour
     [SerializeField] private GameObject[] regularAmmo;
 
     [HideInInspector] public bool isReloading;
+
+    public float fireRate = 15f;
+    private float nextTimeToFire = 0f;
 
     void Start()
     {
@@ -23,8 +25,9 @@ public class RegularAmmo : MonoBehaviour
     void Update()
     {
         // *FIRE*
-        if (Input.GetButtonDown("Fire1") && regularAmmoAmount > 0)
+        if (Input.GetButtonDown("Fire1") && regularAmmoAmount > 0 && Time.time >= nextTimeToFire)
         {
+            nextTimeToFire = Time.time + 1f / fireRate;
             anim.SetTrigger("fire");
             Shoot();
             regularAmmoAmount -= 1;
@@ -34,7 +37,6 @@ public class RegularAmmo : MonoBehaviour
         // *RELOAD*
         if (Input.GetKey(KeyCode.R) && regularAmmoAmount < 8)
         {
-
             anim.SetTrigger("reload");
 
             // Displays UI images 

@@ -288,6 +288,8 @@ MonoBehaviour:
   - {fileID: 1139668423}
   - {fileID: 1626564470}
   - {fileID: 778376386}
+  isReloading: 0
+  fireRate: 2
 --- !u!1 &471413465
 GameObject:
   m_ObjectHideFlags: 0
