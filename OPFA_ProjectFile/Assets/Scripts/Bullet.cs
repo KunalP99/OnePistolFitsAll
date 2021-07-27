@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Bat")
         {
+            CameraShake.Instance.ShakeCamera(6f, 0.1f);
             bat.TakeHit(50f);
             Destroy(gameObject);
         }

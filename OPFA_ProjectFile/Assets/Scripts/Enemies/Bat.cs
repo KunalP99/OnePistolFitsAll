@@ -7,6 +7,8 @@ public class Bat : MonoBehaviour
     public float hp;
     public float maxHp;
 
+    public PlayerController player;
+
     Animator anim;
 
     private BoxCollider2D collider;
@@ -41,6 +43,14 @@ public class Bat : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            StartCoroutine(player.Knockback(0.5f, 300f, this.transform));
+        }
     }
 
 }
