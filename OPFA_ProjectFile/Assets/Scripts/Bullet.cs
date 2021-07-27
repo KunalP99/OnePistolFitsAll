@@ -7,13 +7,9 @@ public class Bullet : MonoBehaviour
     public float bulletSpeed = 20f;
     public Rigidbody2D rb;
 
-    private Bat bat;
-
     // Start is called before the first frame update
     void Start()
     {
-        bat = GameObject.FindGameObjectWithTag("Bat").GetComponent<Bat>();
-
         // Moves bullet in a direction
         rb.velocity = transform.right * bulletSpeed;
     }
@@ -21,9 +17,7 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Bat")
-        {
-            CameraShake.Instance.ShakeCamera(6f, 0.1f);
-            bat.TakeHit(50f);
+        {;
             Destroy(gameObject);
         }
     }

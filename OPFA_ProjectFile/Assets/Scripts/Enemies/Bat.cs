@@ -17,6 +17,8 @@ public class Bat : MonoBehaviour
     {
         anim = gameObject.GetComponent<Animator>();
         collider = gameObject.GetComponent<BoxCollider2D>();
+
+        hp = maxHp;
     }
 
     public void TakeHit(float damage)
@@ -26,7 +28,6 @@ public class Bat : MonoBehaviour
         if (hp <= 0)
         {
             StartCoroutine(DeathAnimation());
-            return;
         }
     }
 
@@ -36,13 +37,13 @@ public class Bat : MonoBehaviour
         collider.enabled = false;
         anim.SetTrigger("death");
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         anim.SetTrigger("fadeOut");
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -50,6 +51,12 @@ public class Bat : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             StartCoroutine(player.Knockback(0.5f, 300f, this.transform));
+        }
+
+        if (other.gameObject.tag == "Bullet")
+        {
+            TakeHit(50f);
+            CameraShake.Instance.ShakeCamera(6f, 0.1f);
         }
     }
 
