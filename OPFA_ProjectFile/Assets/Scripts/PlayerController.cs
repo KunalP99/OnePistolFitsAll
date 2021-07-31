@@ -10,9 +10,23 @@ public class PlayerController : MonoBehaviour
 
     Vector2 movement;
 
+    // Health variables
+    public int maxHealth = 100;
+    public int currentHealth;
+    public Health healthBar;
+
     // Mouse rotation variables
     Vector2 dir;
     private float angle;
+
+    // Enemy damage variables
+    private int batDamage = 20;
+
+    void Start()
+    {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+    }
 
     // Update is called once per frame, noy good when dealing with physics to use Update(), as framerate can constantly change, so use FixedUpdate() instead
     void Update()
@@ -28,6 +42,9 @@ public class PlayerController : MonoBehaviour
         // Creates a rotation, that rotates the angle degrees around the axis 
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = rotation;
+
+        // DEATH
+        Death();
     }
     
     // Executed on a fixed timer, by default, FixedUpdate() will be called 50 times per minute
@@ -51,4 +68,28 @@ public class PlayerController : MonoBehaviour
         yield return 0;
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Bat")
+        {
+            currentHealth -= batDamage;
+            healthBar.SetHealth(currentHealth);
+
+            CameraShake.Instance.ShakeCamera(10f, 0.1f);
+        }
+    }
+
+    void Death()
+    {
+        if (currentHealth <= 0)
+        {
+            // Play death animation
+
+            // Give player option to restart level or quit
+
+            // Pause game
+
+            Destroy(gameObject);
+        }
+    }
 }

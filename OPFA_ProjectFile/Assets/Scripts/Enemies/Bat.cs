@@ -7,16 +7,18 @@ public class Bat : MonoBehaviour
     public float hp;
     public float maxHp;
 
+    public GameObject bloodEffect;
+
     public PlayerController player;
 
     Animator anim;
 
-    private BoxCollider2D collider;
+    private BoxCollider2D bCollider;
 
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
-        collider = gameObject.GetComponent<BoxCollider2D>();
+        bCollider = gameObject.GetComponent<BoxCollider2D>();
 
         hp = maxHp;
     }
@@ -27,6 +29,7 @@ public class Bat : MonoBehaviour
 
         if (hp <= 0)
         {
+            Instantiate(bloodEffect, transform.position, Quaternion.identity);
             StartCoroutine(DeathAnimation());
         }
     }
@@ -34,7 +37,7 @@ public class Bat : MonoBehaviour
     IEnumerator DeathAnimation()
     {
         // Plays the death animation, waits 2 seconds, fades the sprite out, waits 3 seconds and destroys game object (performance)
-        collider.enabled = false;
+        bCollider.enabled = false;
         anim.SetTrigger("death");
 
         yield return new WaitForSeconds(1f);

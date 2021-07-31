@@ -5,6 +5,7 @@ using Cinemachine;
 
 public class CameraShake : MonoBehaviour
 {
+    // Can use this script in any other script without having to reference it
     public static CameraShake Instance { get; private set; }
 
     private CinemachineVirtualCamera camera;
