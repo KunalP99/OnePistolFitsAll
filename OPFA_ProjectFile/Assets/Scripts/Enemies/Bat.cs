@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Bat : MonoBehaviour
 {
@@ -10,15 +11,18 @@ public class Bat : MonoBehaviour
     public GameObject bloodEffect;
 
     public PlayerController player;
+    public BatAI batAi;
 
     Animator anim;
 
-    private BoxCollider2D bCollider;
+    BoxCollider2D bCollider;
+    Rigidbody2D rb;
 
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
         bCollider = gameObject.GetComponent<BoxCollider2D>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
 
         hp = maxHp;
     }
@@ -30,6 +34,11 @@ public class Bat : MonoBehaviour
         if (hp <= 0)
         {
             Instantiate(bloodEffect, transform.position, Quaternion.identity);
+            batAi.speed = 0;
+
+            // Changes the body type of the rigidbody to static so it enemy doesn't move back when hit
+            rb.bodyType = RigidbodyType2D.Static;
+
             StartCoroutine(DeathAnimation());
         }
     }
@@ -49,7 +58,7 @@ public class Bat : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -62,5 +71,6 @@ public class Bat : MonoBehaviour
             CameraShake.Instance.ShakeCamera(6f, 0.1f);
         }
     }
+        
 
 }

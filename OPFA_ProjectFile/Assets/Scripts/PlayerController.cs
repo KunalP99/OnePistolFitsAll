@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    public GameObject metalParticleEffect;
+
+    public ParticleSystem dashParticleEffect;
+
     Vector2 movement;
 
     // Health variables
@@ -22,8 +26,17 @@ public class PlayerController : MonoBehaviour
     // Enemy damage variables
     private int batDamage = 20;
 
+    // Dash variables
+    private bool isDashButtonDown;
+    private float cooldownTime = 2f;
+    private float nextDashTime = 0;
+
+    BoxCollider2D playerCollider;
+
     void Start()
     {
+        playerCollider = gameObject.GetComponent<BoxCollider2D>();
+
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -43,15 +56,38 @@ public class PlayerController : MonoBehaviour
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = rotation;
 
+        // *DASH* + cooldown
+        if (Time.time > nextDashTime)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                nextDashTime = Time.time + cooldownTime;
+
+                isDashButtonDown = true;
+
+                dashParticleEffect.Play();
+
+                StartCoroutine(DashInvicibility(0.1f));
+            }
+        }
+
         // DEATH
         Death();
     }
-    
+
     // Executed on a fixed timer, by default, FixedUpdate() will be called 50 times per minute
     void FixedUpdate()
     {
-        // Moves the object to a new position at a set speed
+        // Moves the player to a new position at a set speed
         rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
+
+        // *DASH*
+        if (isDashButtonDown)
+        {
+            float dashAmount = 3f;
+            rb.MovePosition(rb.position + movement * dashAmount);
+            isDashButtonDown = false;
+        }
     }
 
     public IEnumerator Knockback(float knockbackDuration, float knockbackPower, Transform obj)
@@ -68,7 +104,16 @@ public class PlayerController : MonoBehaviour
         yield return 0;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public IEnumerator DashInvicibility(float invicibilityTime)
+    {
+        playerCollider.enabled = false;
+
+        yield return new WaitForSeconds(invicibilityTime);
+
+        playerCollider.enabled = true;
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Bat")
         {
@@ -84,12 +129,14 @@ public class PlayerController : MonoBehaviour
         if (currentHealth <= 0)
         {
             // Play death animation
+            Instantiate(metalParticleEffect, transform.position, Quaternion.identity);
 
             // Give player option to restart level or quit
 
             // Pause game
 
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
+

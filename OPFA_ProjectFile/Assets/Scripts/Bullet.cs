@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * bulletSpeed;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Bat")
         {;

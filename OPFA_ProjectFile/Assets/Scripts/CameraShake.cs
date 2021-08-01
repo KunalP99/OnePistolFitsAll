@@ -8,7 +8,7 @@ public class CameraShake : MonoBehaviour
     // Can use this script in any other script without having to reference it
     public static CameraShake Instance { get; private set; }
 
-    private CinemachineVirtualCamera camera;
+    private CinemachineVirtualCamera vCamera;
     private float shakeTimer;
     private float shakeTimerTotal;
     private float startingIntensity;
@@ -16,13 +16,13 @@ public class CameraShake : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        camera = GetComponent<CinemachineVirtualCamera>();
+        vCamera = GetComponent<CinemachineVirtualCamera>();
     }
 
     public void ShakeCamera(float intensity, float time)
     {
         // Get the cinemachine componenet of type CinemachineBasicMultiChannelPerlin and store it in a varaible
-        CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = vCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
         // Change the intensity of shake by modifying AmplitudeGain variable value
         cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = intensity;
@@ -38,7 +38,7 @@ public class CameraShake : MonoBehaviour
         {
             shakeTimer -= Time.deltaTime;
 
-            CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = vCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
             // Goes from starting intensity to 0 to smoothly go from the camera shake to idle 
             cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = Mathf.Lerp(startingIntensity, 0f, shakeTimer / shakeTimerTotal);
