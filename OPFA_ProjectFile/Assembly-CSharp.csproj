@@ -60,12 +60,14 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\CameraShake.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Scripts\Items\Medkit.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyHealthBar.cs" />
+    <Compile Include="Assets\Scripts\Ammo Types\SMGAmmo.cs" />
     <Compile Include="Assets\Scripts\Ammo Types\RegularAmmo.cs" />
     <Compile Include="Assets\Scripts\LetterBoxer.cs" />
+    <Compile Include="Assets\Scripts\Enemies\BatAI.cs" />
     <Compile Include="Assets\Scripts\Crosshair.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
-    <Compile Include="Assets\Scripts\Enemies\BatAI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -290,11 +292,11 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.11f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
       <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.11f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
@@ -739,17 +741,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{EA4A4A2C-0029-819E-123D-7783BC4E3C8D}</Project>
-      <Name>AstarPathfindingProjectEditor</Name>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{CE8012ED-B7AC-4FC7-0D96-EEF41ABE7D6A}</Project>
+      <Name>PackageToolsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProject.csproj">
       <Project>{CEE8BBAD-FA0C-AB74-2F09-38E9C359705D}</Project>
       <Name>AstarPathfindingProject</Name>
     </ProjectReference>
-    <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{CE8012ED-B7AC-4FC7-0D96-EEF41ABE7D6A}</Project>
-      <Name>PackageToolsEditor</Name>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{EA4A4A2C-0029-819E-123D-7783BC4E3C8D}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

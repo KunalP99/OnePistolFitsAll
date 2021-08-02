@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,8 +10,11 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
 
     public GameObject metalParticleEffect;
-
+    public ParticleSystem switchPistolParticleEffect;
+    public ParticleSystem switchSmgParticleEffect;
     public ParticleSystem dashParticleEffect;
+
+    Animator anim;
 
     Vector2 movement;
 
@@ -33,9 +37,17 @@ public class PlayerController : MonoBehaviour
 
     BoxCollider2D playerCollider;
 
+    // Ammo switching variables
+    public GameObject pistolUI;
+    public GameObject smgUI;
+    public SpriteRenderer sr;
+
+    bool isReloadingAnim = false;
+
     void Start()
     {
         playerCollider = gameObject.GetComponent<BoxCollider2D>();
+        anim = gameObject.GetComponent<Animator>();
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -69,6 +81,32 @@ public class PlayerController : MonoBehaviour
 
                 StartCoroutine(DashInvicibility(0.1f));
             }
+        }
+
+        // *AMMO SWITCHING* ADD COOLDOWN TO WEAPON SWITCH (10 - 20 SECONDS)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            // Enabling and disabling ammo scripts on player object
+            GetComponent<RegularAmmo>().enabled = true;
+            GetComponent<SMGAmmo>().enabled = false;
+
+            // Play particle effect for each change 
+            switchPistolParticleEffect.Play();
+
+            pistolUI.SetActive(true);
+            smgUI.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            GetComponent<RegularAmmo>().enabled = false;
+            GetComponent<SMGAmmo>().enabled = true;
+
+            // Play particle effect for each change 
+            switchSmgParticleEffect.Play();
+
+            pistolUI.SetActive(false);
+            smgUI.SetActive(true);
         }
 
         // DEATH

@@ -62,7 +62,7 @@ public class Bat : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            StartCoroutine(player.Knockback(0.5f, 300f, this.transform));
+            StartCoroutine(player.Knockback(0.5f, 1000f, this.transform));
         }
 
         if (other.gameObject.tag == "Bullet")
