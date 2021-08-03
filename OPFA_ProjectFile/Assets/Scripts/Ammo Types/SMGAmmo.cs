@@ -10,6 +10,8 @@ public class SMGAmmo : MonoBehaviour
 
     [SerializeField] private int smgAmmoAmount = 32;
     [SerializeField] private GameObject[] smgAmmo;
+    [HideInInspector] public int smgMaxAmmo = 96;
+    public int smgCurrentBullets;
 
     [HideInInspector] public bool isReloading = false;
 
@@ -20,6 +22,8 @@ public class SMGAmmo : MonoBehaviour
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
+
+        smgCurrentBullets = smgMaxAmmo;
     }
 
     // Update is called once per frame
@@ -30,22 +34,26 @@ public class SMGAmmo : MonoBehaviour
             return;
         }
 
-        // *FIRE*
-        if (Input.GetButton("Fire1") && smgAmmoAmount > 0 && Time.time >= nextTimeToFire)
+        if (smgCurrentBullets > 0)
         {
-            Shoot();
-        }
+            // *FIRE*
+            if (Input.GetButton("Fire1") && smgAmmoAmount > 0 && Time.time >= nextTimeToFire)
+            {
+                Shoot();
+                smgCurrentBullets--;
+            }
 
-        // *RELOAD*
-        if (Input.GetKey(KeyCode.R) && smgAmmoAmount < 31)
-        {
-            StartCoroutine(Reload());
-            return;
-        }
-        else if (smgAmmoAmount == 0)
-        {
-            StartCoroutine(Reload());
-            return;
+            // *RELOAD*
+            if (Input.GetKey(KeyCode.R) && smgAmmoAmount < 31)
+            {
+                StartCoroutine(Reload());
+                return;
+            }
+            else if (smgAmmoAmount == 0)
+            {
+                StartCoroutine(Reload());
+                return;
+            }
         }
     }
 
@@ -59,10 +67,17 @@ public class SMGAmmo : MonoBehaviour
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
         smgAmmoAmount -= 1;
+
         smgAmmo[smgAmmoAmount].gameObject.SetActive(false);
+
+        // Removes the correct amount of bullets when current ammo is less than 32
+        if (smgCurrentBullets < 32)
+        {
+            smgAmmo[smgCurrentBullets - 1].gameObject.SetActive(false);
+        }
     }
 
-    IEnumerator Reload()
+    public IEnumerator Reload()
     {
         isReloading = true;
 
@@ -75,7 +90,15 @@ public class SMGAmmo : MonoBehaviour
         smgAmmoAmount = 32;
         for (int i = 0; i <= 31; i++)
         {
-            smgAmmo[i].gameObject.SetActive(true);
+            if (smgCurrentBullets > 32)
+            {
+                smgAmmo[i].gameObject.SetActive(true);
+            }
+            else if (smgCurrentBullets < 32) // When player has less than 32 current ammo, it will show in the UI
+            {
+                for (int j = 0; j <= smgCurrentBullets - 1; j++)
+                smgAmmo[j].gameObject.SetActive(true);           
+            }
         }
 
         isReloading = false;
