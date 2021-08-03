@@ -17,6 +17,7 @@ public class SMGPickup : MonoBehaviour
             player.smgFound = true;
             player.smgPicked = true;
             player.pistolPicked = true;
+            player.lastKeyHit = KeyCode.Alpha2;
 
             player.GetComponent<RegularAmmo>().enabled = false;
             player.GetComponent<SMGAmmo>().enabled = true;

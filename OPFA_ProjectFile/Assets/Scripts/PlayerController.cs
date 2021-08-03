@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class PlayerController : MonoBehaviour
     Animator anim;
 
     Vector2 movement;
+
+    [HideInInspector] public KeyCode lastKeyHit;
 
     // Health variables
     public int maxHealth = 100;
@@ -43,12 +46,16 @@ public class PlayerController : MonoBehaviour
     public GameObject pistolSwitchUI;
     public GameObject smgSwitchUI;
     public SpriteRenderer sr;
-    [HideInInspector]public float nextSwitchTime = 0;
+    [HideInInspector] public float nextSwitchTime = 0;
     [HideInInspector] public bool pistolPicked = false;
     [HideInInspector] public bool smgPicked = true;
     [HideInInspector] public bool smgFound = false;
 
     bool isReloadingAnim = false;
+
+    // Timer variables
+    public DashCoutdownTimer dashTimer;
+    public SmgSwitchTimer smgSwitchTimer;
 
     void Start()
     {
@@ -82,21 +89,22 @@ public class PlayerController : MonoBehaviour
                 nextDashTime = Time.time + cooldownTime;
 
                 isDashButtonDown = true;
+                dashTimer.gameObject.SetActive(true);
 
                 dashParticleEffect.Play();
 
+                StartCoroutine(dashTimer.DashTimerEnabled());
                 StartCoroutine(DashInvicibility(0.1f));
             }
         }
 
         // *AMMO SWITCHING* 
-
         if (Time.time > nextSwitchTime)
         {
             // Pistol switch
             if (Input.GetKeyDown(KeyCode.Alpha1) && pistolPicked == true)
             {
-                nextSwitchTime = Time.time + 3f;
+                nextSwitchTime = Time.time + 9f;
 
                 // Enabling and disabling ammo scripts on player object
                 GetComponent<RegularAmmo>().enabled = true;
@@ -104,6 +112,13 @@ public class PlayerController : MonoBehaviour
 
                 // Play particle effect for each change 
                 switchPistolParticleEffect.Play();
+
+                // Checks to see whether the last key pressed is 2, which will then show the smg cooldown timer
+                if (lastKeyHit == KeyCode.Alpha2)
+                {
+                    smgSwitchTimer.gameObject.SetActive(true);
+                    StartCoroutine(smgSwitchTimer.SmgTimerEnabled());
+                }
 
                 pistolPicked = false;
                 smgPicked = true;
@@ -121,7 +136,9 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha2) && smgPicked == true && smgFound == true)
             {
-                nextSwitchTime = Time.time + 10f;
+                nextSwitchTime = Time.time + 0.1f;
+
+                lastKeyHit = KeyCode.Alpha2;
 
                 GetComponent<RegularAmmo>().enabled = false;
                 GetComponent<SMGAmmo>().enabled = true;
