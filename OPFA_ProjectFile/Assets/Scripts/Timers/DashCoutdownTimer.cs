@@ -16,8 +16,12 @@ public class DashCoutdownTimer : MonoBehaviour
     public GameObject dashTimer;
     [HideInInspector] public bool dashTimerEnabled = false;
 
+    public Animator anim;
+
     void OnEnable()
     {
+        anim.SetTrigger("enter");
+
         dashCurrentTime = dashStartingTime;
 
         dashTimer.SetActive(true);
@@ -38,6 +42,11 @@ public class DashCoutdownTimer : MonoBehaviour
         dashCurrentTime -= 1 * Time.deltaTime;
         // Convert the integer to string so it can be displayed in UI
         countdownText.text = dashCurrentTime.ToString("0");
+
+        if (dashCurrentTime <= 0.6f)
+        {
+            anim.SetTrigger("exit");
+        }
 
         if (dashCurrentTime <= 0)
         {

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bat
   - Bullet
+  - Pistol_Enemy
+  - Pistol_Bullet
   layers:
   - Default
   - TransparentFX

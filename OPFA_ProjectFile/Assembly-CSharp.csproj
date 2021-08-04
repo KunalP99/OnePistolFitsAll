@@ -68,11 +68,13 @@
     <Compile Include="Assets\Scripts\Other\LetterBoxer.cs" />
     <Compile Include="Assets\Scripts\Enemies\BatAI.cs" />
     <Compile Include="Assets\Scripts\Items\AmmoCrate.cs" />
+    <Compile Include="Assets\Scripts\Timers\SmgSwitchTimer.cs" />
     <Compile Include="Assets\Scripts\Crosshair.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
-    <Compile Include="Assets\Scripts\Ammo Types\HugeAmmo.cs" />
     <Compile Include="Assets\Scripts\Timers\DashCoutdownTimer.cs" />
-    <Compile Include="Assets\Scripts\Timers\SmgSwitchTimer.cs" />
+    <Compile Include="Assets\Scripts\Ammo Types\HugeAmmo.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Enemy_Pistol.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Enemy_Projectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

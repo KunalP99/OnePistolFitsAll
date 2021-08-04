@@ -16,12 +16,15 @@ public class SmgSwitchTimer : MonoBehaviour
     public GameObject smgSwitchTimer;
     [HideInInspector] public bool smgSwitchTimerEnabled = false;
 
+    public Animator anim;
+
     void OnEnable()
     {
+        anim.SetTrigger("enter");
+
         smgSwitchCurrentTime = smgSwitchStartingTime;
 
         smgSwitchTimer.SetActive(true);
-
     }
 
     void Update()
@@ -38,6 +41,11 @@ public class SmgSwitchTimer : MonoBehaviour
         smgSwitchCurrentTime -= 1 * Time.deltaTime;
         // Convert the integer to string so it can be displayed in UI
         countdownText.text = smgSwitchCurrentTime.ToString("0");
+
+        if (smgSwitchCurrentTime <= 0.6f)
+        {
+            anim.SetTrigger("exit");
+        }
 
         if (smgSwitchCurrentTime <= 0)
         {

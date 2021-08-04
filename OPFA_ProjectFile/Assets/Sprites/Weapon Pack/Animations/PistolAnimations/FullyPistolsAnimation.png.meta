@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: 7060033392405611626
     second: FullyPistolsAnimation_3
+  - first:
+      213: -3967686869712083937
+    second: FullyPistolsAnimation_4
+  - first:
+      213: -4734098270234911236
+    second: FullyPistolsAnimation_5
+  - first:
+      213: -4721731697246855434
+    second: FullyPistolsAnimation_6
+  - first:
+      213: -832387304750290986
+    second: FullyPistolsAnimation_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -182,6 +194,90 @@ TextureImporter:
       bones: []
       spriteID: a648bb8f6f64af160800000000000000
       internalID: 7060033392405611626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyPistolsAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 9
+        width: 39
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1464de40d1ffe8c0800000000000000
+      internalID: -3967686869712083937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyPistolsAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 9
+        width: 39
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd5bde94ba1d4eb0800000000000000
+      internalID: -4734098270234911236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyPistolsAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 9
+        width: 39
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fe16e4c90a097eb0800000000000000
+      internalID: -4721731697246855434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyPistolsAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 9
+        width: 39
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d760d01824c274f0800000000000000
+      internalID: -832387304750290986
       vertices: []
       indices: 
       edges: []

@@ -54,6 +54,8 @@ public class RegularAmmo : MonoBehaviour
         nextTimeToFire = Time.time + 1f / fireRate;
         anim.SetTrigger("fire");
 
+        CameraShake.Instance.ShakeCamera(1f, 0.1f);
+
         // Spawns the bullet prefab at firePoint position with firePoint rotation
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 

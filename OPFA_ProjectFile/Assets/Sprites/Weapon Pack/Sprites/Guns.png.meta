@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -4254059877319897387
     second: Guns_0
+  - first:
+      213: 6407226241554960098
+    second: Guns_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -110,6 +113,27 @@ TextureImporter:
       bones: []
       spriteID: 5de0b1f941b86f4c0800000000000000
       internalID: -4254059877319897387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guns_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 73
+        width: 12
+        height: 10
+      alignment: 9
+      pivot: {x: 0.90503377, y: 0.7083023}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eec17bd15a0be850800000000000000
+      internalID: 6407226241554960098
       vertices: []
       indices: 
       edges: []

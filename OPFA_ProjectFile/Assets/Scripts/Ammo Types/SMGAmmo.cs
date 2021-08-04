@@ -66,6 +66,8 @@ public class SMGAmmo : MonoBehaviour
         // Spawns the bullet prefab at firePoint position with firePoint rotation
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
+        CameraShake.Instance.ShakeCamera(1f, 0.1f);
+
         smgAmmoAmount -= 1;
 
         smgAmmo[smgAmmoAmount].gameObject.SetActive(false);

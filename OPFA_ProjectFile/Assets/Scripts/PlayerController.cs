@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     // Enemy damage variables
     private int batDamage = 20;
+    private int pistolDamage = 30;
 
     // Dash variables
     private bool isDashButtonDown;
@@ -203,6 +204,25 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Bat")
         {
             currentHealth -= batDamage;
+            healthBar.SetHealth(currentHealth);
+
+            CameraShake.Instance.ShakeCamera(10f, 0.1f);
+        }
+
+        if (other.gameObject.tag == "Pistol_Enemy")
+        {
+            currentHealth -= pistolDamage;
+            healthBar.SetHealth(currentHealth);
+
+            CameraShake.Instance.ShakeCamera(10f, 0.1f);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Pistol_Bullet")
+        {
+            currentHealth -= pistolDamage;
             healthBar.SetHealth(currentHealth);
 
             CameraShake.Instance.ShakeCamera(10f, 0.1f);
