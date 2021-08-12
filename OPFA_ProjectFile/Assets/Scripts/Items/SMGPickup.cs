@@ -15,12 +15,13 @@ public class SMGPickup : MonoBehaviour
             player.nextSwitchTime = Time.time + 1.2f; 
 
             player.smgFound = true;
-            player.smgPicked = true;
+            player.smgPicked = false;
             player.pistolPicked = true;
-            player.lastKeyHit = KeyCode.Alpha2;
+            player.hugePicked = true;
 
             player.GetComponent<RegularAmmo>().enabled = false;
             player.GetComponent<SMGAmmo>().enabled = true;
+            player.GetComponent<HugeAmmo>().enabled = false;
 
             smg.smgMaxAmmo = 96;
 
@@ -29,8 +30,10 @@ public class SMGPickup : MonoBehaviour
 
             player.pistolUI.SetActive(false);
             player.smgUI.SetActive(true);
+            player.hugeUI.SetActive(false);
             player.pistolSwitchUI.SetActive(false);
             player.smgSwitchUI.SetActive(true);
+            player.hugeSwitchUI.SetActive(false);
 
             Destroy(gameObject);
         }

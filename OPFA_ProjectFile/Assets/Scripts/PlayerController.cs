@@ -10,16 +10,16 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    // Particles
     public GameObject metalParticleEffect;
     public ParticleSystem switchPistolParticleEffect;
     public ParticleSystem switchSmgParticleEffect;
+    public ParticleSystem switchHugeParticleEffect;
     public ParticleSystem dashParticleEffect;
 
     Animator anim;
 
     Vector2 movement;
-
-    [HideInInspector] public KeyCode lastKeyHit;
 
     // Health variables
     public int maxHealth = 100;
@@ -44,19 +44,22 @@ public class PlayerController : MonoBehaviour
     // Ammo switching variables
     public GameObject pistolUI;
     public GameObject smgUI;
+    public GameObject hugeUI;
     public GameObject pistolSwitchUI;
     public GameObject smgSwitchUI;
+    public GameObject hugeSwitchUI;
     public SpriteRenderer sr;
     [HideInInspector] public float nextSwitchTime = 0;
     [HideInInspector] public bool pistolPicked = false;
     [HideInInspector] public bool smgPicked = true;
     [HideInInspector] public bool smgFound = false;
+    [HideInInspector] public bool hugePicked = true;
+    [HideInInspector] public bool hugeFound = false;
 
     bool isReloadingAnim = false;
 
     // Timer variables
     public DashCoutdownTimer dashTimer;
-    public SmgSwitchTimer smgSwitchTimer;
 
     void Start()
     {
@@ -100,61 +103,72 @@ public class PlayerController : MonoBehaviour
         }
 
         // *AMMO SWITCHING* 
-        if (Time.time > nextSwitchTime)
+        // Pistol switch
+        if (Input.GetKeyDown(KeyCode.Alpha1) && pistolPicked == true)
         {
-            // Pistol switch
-            if (Input.GetKeyDown(KeyCode.Alpha1) && pistolPicked == true)
-            {
-                nextSwitchTime = Time.time + 9f;
+            // Enabling and disabling ammo scripts on player object
+            GetComponent<RegularAmmo>().enabled = true;
+            GetComponent<SMGAmmo>().enabled = false;
+            GetComponent<HugeAmmo>().enabled = false;
 
-                // Enabling and disabling ammo scripts on player object
-                GetComponent<RegularAmmo>().enabled = true;
-                GetComponent<SMGAmmo>().enabled = false;
+            // Play particle effect for each change 
+            switchPistolParticleEffect.Play();
 
-                // Play particle effect for each change 
-                switchPistolParticleEffect.Play();
+            pistolPicked = false;
+            smgPicked = true;
+            hugePicked = true;
 
-                // Checks to see whether the last key pressed is 2, which will then show the smg cooldown timer
-                if (lastKeyHit == KeyCode.Alpha2)
-                {
-                    smgSwitchTimer.gameObject.SetActive(true);
-                    StartCoroutine(smgSwitchTimer.SmgTimerEnabled());
-                }
-
-                pistolPicked = false;
-                smgPicked = true;
-
-                // Sets all the UI for icons
-                pistolUI.SetActive(true);
-                smgUI.SetActive(false);
-                pistolSwitchUI.SetActive(true);
-                smgSwitchUI.SetActive(false);
-            }
+            // Sets all the UI for icons
+            pistolUI.SetActive(true);
+            smgUI.SetActive(false);
+            hugeUI.SetActive(false);
+            pistolSwitchUI.SetActive(true);
+            smgSwitchUI.SetActive(false);
+            hugeSwitchUI.SetActive(false);
         }
 
         // SMG switch
-        if (Time.time > nextSwitchTime)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && smgPicked == true && smgFound == true)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha2) && smgPicked == true && smgFound == true)
-            {
-                nextSwitchTime = Time.time + 0.1f;
+            GetComponent<RegularAmmo>().enabled = false;
+            GetComponent<SMGAmmo>().enabled = true;
+            GetComponent<HugeAmmo>().enabled = false;
 
-                lastKeyHit = KeyCode.Alpha2;
+            // Play particle effect for each change 
+            switchSmgParticleEffect.Play();
 
-                GetComponent<RegularAmmo>().enabled = false;
-                GetComponent<SMGAmmo>().enabled = true;
+            pistolPicked = true;
+            smgPicked = false;
+            hugePicked = true;
 
-                // Play particle effect for each change 
-                switchSmgParticleEffect.Play();
+            pistolUI.SetActive(false);
+            smgUI.SetActive(true);
+            hugeUI.SetActive(false);
+            pistolSwitchUI.SetActive(false);
+            smgSwitchUI.SetActive(true);
+            hugeSwitchUI.SetActive(false);
+        }
 
-                pistolPicked = true;
-                smgPicked = false;
+        // Huge switch
+        if (Input.GetKeyDown(KeyCode.Alpha3) && hugePicked == true && hugeFound == true)
+        {
+            GetComponent<RegularAmmo>().enabled = false;
+            GetComponent<SMGAmmo>().enabled = false;
+            GetComponent<HugeAmmo>().enabled = true;
 
-                pistolUI.SetActive(false);
-                smgUI.SetActive(true);
-                pistolSwitchUI.SetActive(false);
-                smgSwitchUI.SetActive(true);
-            }
+            //PARTICLE EFFECT
+            switchHugeParticleEffect.Play();
+
+            pistolPicked = true;
+            smgPicked = true;
+            hugePicked = false;
+
+            pistolUI.SetActive(false);
+            smgUI.SetActive(false);
+            hugeUI.SetActive(true);
+            pistolSwitchUI.SetActive(false);
+            smgSwitchUI.SetActive(false);
+            hugeSwitchUI.SetActive(true);
         }
 
         // DEATH
@@ -220,7 +234,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Pistol_Bullet")
+        if (other.gameObject.tag == "Pistol_Enemy_Bullet")
         {
             currentHealth -= pistolDamage;
             healthBar.SetHealth(currentHealth);

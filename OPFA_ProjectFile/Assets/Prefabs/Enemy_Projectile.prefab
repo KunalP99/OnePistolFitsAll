@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3506504312728938837, guid: 5e5c835ebccc5c549825865bded45f20, type: 3}
       propertyPath: m_TagString
-      value: Pistol_Bullet
+      value: Pistol_Enemy_Bullet
       objectReference: {fileID: 0}
     - target: {fileID: 4816038784840140386, guid: 5e5c835ebccc5c549825865bded45f20, type: 3}
       propertyPath: m_RootOrder

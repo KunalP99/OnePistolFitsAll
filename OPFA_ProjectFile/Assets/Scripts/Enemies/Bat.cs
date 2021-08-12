@@ -70,6 +70,12 @@ public class Bat : MonoBehaviour
             TakeHit(50f);
             CameraShake.Instance.ShakeCamera(6f, 0.1f);
         }
+
+        if (other.gameObject.tag == "Huge_Bullet")
+        {
+            TakeHit(100f);
+            CameraShake.Instance.ShakeCamera(7f, 0.1f);
+        }
     }
         
 

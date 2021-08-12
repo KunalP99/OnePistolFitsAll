@@ -8,19 +8,22 @@ public class HugeAmmo : MonoBehaviour
     public Transform firePoint;
     Animator anim;
 
-    [SerializeField] private int hugeAmmoAmount = 5;
+    [SerializeField] private int hugeAmmoAmount = 10;
     [SerializeField] private GameObject[] hugeAmmo;
-    [HideInInspector] public int hugeMaxAmmo = 20;
+    [HideInInspector] public int hugeMaxAmmo = 30;
+    public int hugeCurrentBullets;
 
     [HideInInspector] public bool isReloading = false;
 
-    public float fireRate = 10f;
+    public float fireRate = 15f;
     private float nextTimeToFire = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
+
+        hugeCurrentBullets = hugeMaxAmmo;
     }
 
     // Update is called once per frame
@@ -31,26 +34,26 @@ public class HugeAmmo : MonoBehaviour
             return;
         }
 
-        if (hugeMaxAmmo > 0)
+        if (hugeCurrentBullets > 0)
         {
             // *FIRE*
             if (Input.GetButton("Fire1") && hugeAmmoAmount > 0 && Time.time >= nextTimeToFire)
             {
                 Shoot();
+                hugeCurrentBullets--;
             }
-        }
-       
 
-        // *RELOAD*
-        if (Input.GetKey(KeyCode.R) && hugeAmmoAmount < 5)
-        {
-            StartCoroutine(Reload());
-            return;
-        }
-        else if (hugeAmmoAmount == 0)
-        {
-            StartCoroutine(Reload());
-            return;
+            // *RELOAD*
+            if (Input.GetKey(KeyCode.R) && hugeAmmoAmount < 10)
+            {
+                StartCoroutine(Reload());
+                return;
+            }
+            else if (hugeAmmoAmount == 0 && hugeCurrentBullets > 0)
+            {
+                StartCoroutine(Reload());
+                return;
+            }
         }
     }
 
@@ -63,11 +66,20 @@ public class HugeAmmo : MonoBehaviour
         // Spawns the bullet prefab at firePoint position with firePoint rotation
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
+        CameraShake.Instance.ShakeCamera(1f, 0.1f);
+
         hugeAmmoAmount -= 1;
+
         hugeAmmo[hugeAmmoAmount].gameObject.SetActive(false);
+
+        // Removes the correct amount of bullets when current ammo is less than 32
+        if (hugeCurrentBullets < 10)
+        {
+            hugeAmmo[hugeCurrentBullets - 1].gameObject.SetActive(false);
+        }
     }
 
-    IEnumerator Reload()
+    public IEnumerator Reload()
     {
         isReloading = true;
 
@@ -77,10 +89,18 @@ public class HugeAmmo : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         // Displays UI images for amount of bullets player has
-        hugeAmmoAmount = 32;
-        for (int i = 0; i <= 31; i++)
+        hugeAmmoAmount = 10;
+        for (int i = 0; i <= 9; i++)
         {
-            hugeAmmo[i].gameObject.SetActive(true);
+            if (hugeCurrentBullets >= 10)
+            {
+                hugeAmmo[i].gameObject.SetActive(true);
+            }
+            else if (hugeCurrentBullets < 10) // When player has less than 32 current ammo, it will show in the UI
+            {
+                for (int j = 0; j <= hugeCurrentBullets - 1; j++)
+                    hugeAmmo[j].gameObject.SetActive(true);
+            }
         }
 
         isReloading = false;

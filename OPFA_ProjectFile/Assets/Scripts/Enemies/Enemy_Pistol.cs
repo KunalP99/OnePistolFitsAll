@@ -24,8 +24,6 @@ public class Enemy_Pistol : MonoBehaviour
     public float hp;
     public float maxHp;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -90,6 +88,12 @@ public class Enemy_Pistol : MonoBehaviour
         {
             TakeHit(25f);
             CameraShake.Instance.ShakeCamera(6f, 0.1f);
+        }
+
+        if (other.gameObject.tag == "Huge_Bullet")
+        {
+            TakeHit(50f);
+            CameraShake.Instance.ShakeCamera(7f, 0.1f);
         }
     }
 

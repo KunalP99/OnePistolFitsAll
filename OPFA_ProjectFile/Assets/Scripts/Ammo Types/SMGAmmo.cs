@@ -44,12 +44,12 @@ public class SMGAmmo : MonoBehaviour
             }
 
             // *RELOAD*
-            if (Input.GetKey(KeyCode.R) && smgAmmoAmount < 31)
+            if (Input.GetKey(KeyCode.R) && smgAmmoAmount < 32)
             {
                 StartCoroutine(Reload());
                 return;
             }
-            else if (smgAmmoAmount == 0)
+            else if (smgAmmoAmount == 0 && smgCurrentBullets > 0)
             {
                 StartCoroutine(Reload());
                 return;
@@ -92,7 +92,7 @@ public class SMGAmmo : MonoBehaviour
         smgAmmoAmount = 32;
         for (int i = 0; i <= 31; i++)
         {
-            if (smgCurrentBullets > 32)
+            if (smgCurrentBullets >= 32)
             {
                 smgAmmo[i].gameObject.SetActive(true);
             }
