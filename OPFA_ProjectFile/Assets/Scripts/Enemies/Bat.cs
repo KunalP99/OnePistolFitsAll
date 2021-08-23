@@ -10,10 +10,8 @@ public class Bat : MonoBehaviour
 
     public GameObject bloodEffect;
 
-    public PlayerController player;
-    public BatAI batAi;
-
     Animator anim;
+    PlayerController player;
 
     BoxCollider2D bCollider;
     Rigidbody2D rb;
@@ -23,6 +21,9 @@ public class Bat : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         bCollider = gameObject.GetComponent<BoxCollider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
+
+        GameObject pistol = GameObject.Find("Pistol");
+        player = pistol.GetComponent<PlayerController>();
 
         hp = maxHp;
     }
@@ -34,7 +35,7 @@ public class Bat : MonoBehaviour
         if (hp <= 0)
         {
             Instantiate(bloodEffect, transform.position, Quaternion.identity);
-            batAi.speed = 0;
+            gameObject.GetComponent<BatAI>().speed = 0;
 
             // Changes the body type of the rigidbody to static so it enemy doesn't move back when hit
             rb.bodyType = RigidbodyType2D.Static;
@@ -55,7 +56,7 @@ public class Bat : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     void OnCollisionEnter2D(Collision2D other)

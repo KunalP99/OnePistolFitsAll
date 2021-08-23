@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class BatAI : MonoBehaviour
 {
-    public Transform target;
+    Transform target;
 
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
@@ -22,6 +22,9 @@ public class BatAI : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+
+        GameObject player = GameObject.Find("Pistol");
+        target = player.GetComponent<Transform>();
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
     }
