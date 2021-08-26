@@ -22,14 +22,17 @@ public class WaveSpawner : MonoBehaviour
     public Transform[] spawnPoints;
 
     public float timeBetweenWaves = 5f;
-    private float waveCountdown;
+    public float waveCountdown;
 
     private float searchCountdown = 1f;
 
     private SpawnState state = SpawnState.COUNTING;
 
+    public Animator anim; 
+
     void Start()
     {
+        anim.SetTrigger("start");
         waveCountdown = timeBetweenWaves;
 
         // Error check for number of spawn points
@@ -74,6 +77,9 @@ public class WaveSpawner : MonoBehaviour
     void WaveCompleted()
     {
         Debug.Log("Wave Complete");
+
+        // Play countdown animation
+        anim.SetTrigger("start");
 
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
@@ -133,5 +139,11 @@ public class WaveSpawner : MonoBehaviour
 
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(_enemy, _sp.position, _sp.rotation);
+    }
+
+    void SpawnPistolEnemy(Transform _pistolEnemy)
+    {
+        Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Instantiate(_pistolEnemy, _sp.position, _sp.rotation);
     }
 }
