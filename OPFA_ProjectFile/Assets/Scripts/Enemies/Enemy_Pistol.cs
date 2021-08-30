@@ -13,7 +13,7 @@ public class Enemy_Pistol : MonoBehaviour
 
     public GameObject projectile;
     public GameObject metalParticleEffect;
-    public Transform player;
+    private Transform player;
     public Transform firePoint;
     public Animator anim;
 

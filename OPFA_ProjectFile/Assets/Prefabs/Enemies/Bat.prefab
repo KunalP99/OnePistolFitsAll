@@ -122,8 +122,6 @@ MonoBehaviour:
   hp: 100
   maxHp: 100
   bloodEffect: {fileID: 7357320065422638064, guid: e6a79917c2021a943951b93a2a5b368e, type: 3}
-  player: {fileID: 0}
-  batAi: {fileID: 8655660252959750048}
 --- !u!114 &8655660252959750054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,8 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a8a03bf8d30304bb1486d7022a70b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 600
+  speed: 800
   nextWaypointDistance: 3
 --- !u!61 &8655660252959750049
 BoxCollider2D:
