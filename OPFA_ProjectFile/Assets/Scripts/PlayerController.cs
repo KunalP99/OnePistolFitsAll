@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    private GameObject crosshair;
+
     // Particles
     public GameObject metalParticleEffect;
     public ParticleSystem switchPistolParticleEffect;
@@ -61,10 +63,13 @@ public class PlayerController : MonoBehaviour
     // Timer variables
     public DashCoutdownTimer dashTimer;
 
+    public GameObject deathScreen;
+
     void Start()
     {
         playerCollider = gameObject.GetComponent<BoxCollider2D>();
         anim = gameObject.GetComponent<Animator>();
+        crosshair = GameObject.FindGameObjectWithTag("Crosshair");
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -251,6 +256,9 @@ public class PlayerController : MonoBehaviour
             Instantiate(metalParticleEffect, transform.position, Quaternion.identity);
 
             // Give player option to restart level or quit
+            crosshair.SetActive(false);
+            Cursor.visible = true;
+            deathScreen.SetActive(true);
 
             // Pause game
 
