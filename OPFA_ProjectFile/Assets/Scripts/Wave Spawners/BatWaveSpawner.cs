@@ -23,6 +23,7 @@ public class BatWaveSpawner : MonoBehaviour
     public TextMeshProUGUI waveText;
 
     public Transform[] spawnPoints;
+    public Transform[] medSpawnPoints;
 
     public float timeBetweenWaves = 5f;
     public float waveCountdown;
@@ -60,7 +61,7 @@ public class BatWaveSpawner : MonoBehaviour
         // Spawn items
         if (state == SpawnState.COUNTING && nextWave % 5 == 0 && nextWave > 0 && myMedkit == true) // Multiple of 5, every 5 waves
         {
-            Instantiate(medkit, transform.position, transform.rotation);
+            SpawnMedkit();
             myMedkit = false;
         }
 
@@ -197,5 +198,11 @@ public class BatWaveSpawner : MonoBehaviour
 
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(_enemy, _sp.position, _sp.rotation);
+    }
+
+    void SpawnMedkit()
+    {
+        Transform _medSp = medSpawnPoints[Random.Range(0, medSpawnPoints.Length)];
+        Instantiate(medkit, _medSp.position, _medSp.rotation);
     }
 }
