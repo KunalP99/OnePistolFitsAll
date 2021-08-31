@@ -57,6 +57,10 @@ public class Bat : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         Destroy(gameObject);
+
+        yield return new WaitForSeconds(5f);
+
+        Destroy(bloodEffect);
     }
 
     void OnCollisionEnter2D(Collision2D other)

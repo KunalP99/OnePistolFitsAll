@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BatWaveSpawner : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class BatWaveSpawner : MonoBehaviour
 
     public Wave[] waves;
     public int nextWave = 0;
+
+    public TextMeshProUGUI waveText;
 
     public Transform[] spawnPoints;
 
@@ -60,6 +63,7 @@ public class BatWaveSpawner : MonoBehaviour
                 {
                     // Begin a new wave
                     WaveCompleted();
+                    waveText.text = "Wave: " + nextWave.ToString();
                 }
                 else
                 {
