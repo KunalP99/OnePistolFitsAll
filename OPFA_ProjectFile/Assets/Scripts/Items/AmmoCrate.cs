@@ -4,32 +4,31 @@ using UnityEngine;
 
 public class AmmoCrate : MonoBehaviour
 {
-    PlayerController player;
+    GameObject player;
 
-    public SMGAmmo smgAmmo;
-    public HugeAmmo hugeAmmo;
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && player.GetComponent<PlayerController>().smgFound == true)
         {
-            // Add relevant ammo types here
-            // SMG ammo
-            if (player.smgFound == true)
-            {
-                smgAmmo.smgCurrentBullets = 96;
-                smgAmmo.StartCoroutine(smgAmmo.Reload());
-                Destroy(gameObject);
-            }
-
-            // Huge ammo
-            if (player.hugeFound == true)
-            {
-                hugeAmmo.hugeCurrentBullets = 30;
-                hugeAmmo.StartCoroutine(hugeAmmo.Reload());
-            }
-
-            // Power ammo etc.
+            player.GetComponent<SMGAmmo>().smgCurrentBullets = 96;
+            player.GetComponent<SMGAmmo>().StartCoroutine(player.GetComponent<SMGAmmo>().Reload());
+            Destroy(gameObject);
         }
+        else if (other.gameObject.tag == "Player" && player.GetComponent<PlayerController>().smgFound == true && player.GetComponent<PlayerController>().hugeFound == true)
+        {
+            player.GetComponent<SMGAmmo>().smgCurrentBullets = 96;
+            player.GetComponent<SMGAmmo>().StartCoroutine(player.GetComponent<SMGAmmo>().Reload());
+            Destroy(gameObject);
+
+            player.GetComponent<HugeAmmo>().hugeCurrentBullets = 30;
+            player.GetComponent<HugeAmmo>().GetComponent<HugeAmmo>().StartCoroutine(player.GetComponent<HugeAmmo>().Reload());
+        }
+
+        // Power ammo etc.
     }
 }

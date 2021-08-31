@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Medkit : MonoBehaviour
 {
-    public PlayerController player;
-    public Health healthBar;
+    GameObject player;
+    GameObject healthBar;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        healthBar = GameObject.FindGameObjectWithTag("Health");
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            player.currentHealth = 100;
-            healthBar.SetHealth(player.currentHealth);
+            player.GetComponent<PlayerController>().currentHealth = 100;
+            healthBar.GetComponent<Health>().SetHealth(player.GetComponent<PlayerController>().currentHealth);
 
             Destroy(gameObject);
             // Possible animation OR particle effect

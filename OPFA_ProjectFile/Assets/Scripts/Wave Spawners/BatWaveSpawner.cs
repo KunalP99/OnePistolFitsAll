@@ -34,6 +34,9 @@ public class BatWaveSpawner : MonoBehaviour
     public Animator anim;
     public PistolWaveSpawner pistolWaveSpawner;
 
+    public GameObject medkit;
+    bool myMedkit = true;
+
     void Start()
     {
         anim.SetTrigger("start");
@@ -52,6 +55,13 @@ public class BatWaveSpawner : MonoBehaviour
         if (nextWave >= 5)
         {
             pistolWaveSpawner.GetComponent<PistolWaveSpawner>().enabled = true;
+        }
+        
+        // Spawn items
+        if (state == SpawnState.COUNTING && nextWave % 5 == 0 && nextWave > 0 && myMedkit == true) // Multiple of 5, every 5 waves
+        {
+            Instantiate(medkit, transform.position, transform.rotation);
+            myMedkit = false;
         }
 
         if (state == SpawnState.WAITING)
@@ -103,6 +113,11 @@ public class BatWaveSpawner : MonoBehaviour
     void WaveCompleted()
     {
         Debug.Log("Wave Complete");
+
+        if (myMedkit == false)
+        {
+            myMedkit = true;
+        }
 
         // Play countdown animation
         anim.SetTrigger("start");

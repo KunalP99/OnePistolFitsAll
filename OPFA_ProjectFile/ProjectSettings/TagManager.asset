@@ -11,6 +11,7 @@ TagManager:
   - Pistol_Enemy_Bullet
   - Wall
   - Crosshair
+  - Health
   layers:
   - Default
   - TransparentFX
