@@ -14888,7 +14888,7 @@ MonoBehaviour:
   - name: Pistol
     batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
     count: 0
-    rate: 1
+    rate: 0
   - name: Pistol  + bat
     batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
     count: 4

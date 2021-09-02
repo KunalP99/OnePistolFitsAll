@@ -24,6 +24,8 @@ public class PistolWaveSpawner : MonoBehaviour
     public float timeBetweenWaves = 5f;
     public float waveCountdown;
 
+    private float searchCountdown = 1f;
+
     private SpawnState state = SpawnState.COUNTING;
 
     void Start()
@@ -39,6 +41,21 @@ public class PistolWaveSpawner : MonoBehaviour
 
     void Update()
     {
+        // Wave completion 
+        if (state == SpawnState.WAITING)
+        {
+            // Check if enemies are still alive
+            if (!EnemyIsAlive())
+            {
+                // Begin a new wave
+                WaveCompleted();
+            }
+            else
+            {
+                return;
+            }
+        }
+
         // If it is time to start spawning waves
         if (waveCountdown <= 0)
         {
@@ -73,6 +90,23 @@ public class PistolWaveSpawner : MonoBehaviour
         {
             nextWave++;
         }
+    }
+
+    bool EnemyIsAlive()
+    {
+        searchCountdown -= Time.deltaTime;
+        // Search countdown is to make this code less taxing on the system, since without it, the code will go through each game object every frame
+        if (searchCountdown <= 0f)
+        {
+            searchCountdown = 1f;
+
+            if (GameObject.FindGameObjectWithTag("Bat") == null && GameObject.FindGameObjectWithTag("Pistol_Enemy") == null) // If there are bat enemies than return false
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     IEnumerator SpawnWave(Wave _wave)
