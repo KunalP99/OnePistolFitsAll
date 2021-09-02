@@ -1325,6 +1325,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 536433807}
+  - {fileID: 652700389}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2267,7 +2268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &432212150
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2353,7 +2354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432212149}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.23, y: -4.24, z: -115.64681}
+  m_LocalPosition: {x: -1.33, y: -1.24, z: -115.64681}
   m_LocalScale: {x: 0.7487, y: 0.7487, z: 0.7487}
   m_Children:
   - {fileID: 1842966721}
@@ -3051,7 +3052,7 @@ MonoBehaviour:
   switchSmgParticleEffect: {fileID: 1274934377}
   switchHugeParticleEffect: {fileID: 658677342}
   dashParticleEffect: {fileID: 2005508121}
-  maxHealth: 100
+  maxHealth: 100000
   currentHealth: 0
   healthBar: {fileID: 1350709592}
   pistolUI: {fileID: 2038320853}
@@ -3069,6 +3070,8 @@ MonoBehaviour:
   hugeFound: 0
   dashTimer: {fileID: 1686665721}
   deathScreen: {fileID: 49635828}
+  afterDeathObject: {fileID: 652700388}
+  isDead: 0
 --- !u!212 &536433811
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3400,6 +3403,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &652700388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 652700389}
+  m_Layer: 0
+  m_Name: 'After Death '
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &652700389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652700388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 234332924}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &653761622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,7 +3477,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0013945, y: -0.9380617}
+  m_Offset: {x: 7.2637634, y: -1.5728588}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3455,7 +3488,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3558812, y: 20.472853}
+  m_Size: {x: 16.886196, y: 30.114323}
   m_EdgeRadius: 0
 --- !u!1 &656015095
 GameObject:
@@ -4884,7 +4917,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.6995754, y: 9.751631}
+  m_Offset: {x: -0.67093945, y: 14.813807}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4895,7 +4928,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 36.273502, y: 0.34351826}
+  m_Size: {x: 46.04879, y: 10.467869}
   m_EdgeRadius: 0
 --- !u!1 &1000220909
 GameObject:
@@ -5016,7 +5049,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0013945, y: -0.9380617}
+  m_Offset: {x: -9.939248, y: -0.88554955}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5027,7 +5060,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3558812, y: 20.472853}
+  m_Size: {x: 18.231588, y: 32.837368}
   m_EdgeRadius: 0
 --- !u!1 &1006122813
 GameObject:
@@ -14808,51 +14841,59 @@ MonoBehaviour:
   m_GameObject: {fileID: 1288894769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18a7ae1ac537a764fbf08a0cb2855780, type: 3}
+  m_Script: {fileID: 11500000, guid: 9017769ddfd27ef46a51894ead195534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Bats
+  - name: Bat
     batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
     count: 1
     rate: 1
-  - name: More Bats
+  - name: Even more bats
     batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
     count: 2
-    rate: 1.5
-  - name: Even More Bats
+    rate: 1
+  - name: Even more bats
     batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
     count: 4
-    rate: 2
-  - name: Even More Bats
+    rate: 1
+  - name: Even more bats
     batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
     count: 5
     rate: 2
-  - name: Even More Bats
+  - name: Even more bats
+    batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
+    count: 6
+    rate: 2
+  - name: Even more bats
     batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
     count: 7
-    rate: 2.2
-  - name: Even More Bats
-    batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
-    count: 8
-    rate: 2.2
-  - name: Even More Bats
+    rate: 2
+  - name: Even more bats
     batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
     count: 10
-    rate: 2.2
-  - name: Even More Bats
-    batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
-    count: 12
-    rate: 5
-  - name: Even More Bats
-    batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
-    count: 12
     rate: 2
-  - name: Even More Bats
+  - name: Even more bats
     batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
-    count: 13
+    count: 11
     rate: 2
-  nextWave: 0
+  - name: Even more bats
+    batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
+    count: 14
+    rate: 3
+  - name: Even more bats
+    batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
+    count: 1
+    rate: 1
+  - name: Pistol
+    batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
+    count: 0
+    rate: 1
+  - name: Pistol  + bat
+    batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
+    count: 4
+    rate: 0.2
+  nextWave: 9
   waveText: {fileID: 1096194835}
   spawnPoints:
   - {fileID: 1110004192}
@@ -14888,6 +14929,7 @@ MonoBehaviour:
   anim: {fileID: 1989026557}
   pistolWaveSpawner: {fileID: 1288894772}
   medkit: {fileID: 8962610523016057530, guid: b31c59f23a40a8e42a0066f86ad0ccd9, type: 3}
+  smgPickup: {fileID: 432212149}
 --- !u!4 &1288894771
 Transform:
   m_ObjectHideFlags: 0
@@ -14927,6 +14969,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
+  - name: Pistol
+    pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
+    count: 1
+    rate: 1
+  - name: Pistol
+    pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
+    count: 2
+    rate: 0.2
+  - name: Pistol
+    pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
+    count: 1
+    rate: 1
+  - name: Pistol
+    pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
+    count: 1
+    rate: 1
   - name: Pistol
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
     count: 1
@@ -16307,7 +16365,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.6995754, y: 9.751631}
+  m_Offset: {x: -2.2521915, y: 4.8394175}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -16318,7 +16376,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 36.273502, y: 0.34351826}
+  m_Size: {x: 49.36208, y: 10.167944}
   m_EdgeRadius: 0
 --- !u!1 &1466594091
 GameObject:
@@ -17193,128 +17251,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626564470}
   m_CullTransparentMesh: 1
---- !u!1 &1639355547
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1639355549}
-  - component: {fileID: 1639355548}
-  - component: {fileID: 1639355551}
-  - component: {fileID: 1639355550}
-  m_Layer: 0
-  m_Name: AmmoCrate
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1639355548
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639355547}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1478c3b4d13181f428995bff9f6ef30a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 6.5, y: 5.6}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1639355549
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639355547}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -4.42, z: 0}
-  m_LocalScale: {x: 0.104583144, y: 0.104583144, z: 0.104583144}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1639355550
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639355547}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.5, y: 5.6}
-    newSize: {x: 6.5, y: 5.6}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.5, y: 5.6}
-  m_EdgeRadius: 0
---- !u!114 &1639355551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639355547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f47b56c7980510b4b9007b61477739ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1651823493
 GameObject:
   m_ObjectHideFlags: 0

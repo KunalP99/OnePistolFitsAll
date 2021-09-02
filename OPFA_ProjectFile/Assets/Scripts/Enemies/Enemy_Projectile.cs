@@ -6,7 +6,7 @@ public class Enemy_Projectile : MonoBehaviour
 {
     public float speed;
 
-    private Transform player;
+    private GameObject player;
     private Vector2 target;
 
     private Rigidbody2D rb;
@@ -14,11 +14,11 @@ public class Enemy_Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
 
         rb = gameObject.GetComponent<Rigidbody2D>();
 
-        target = new Vector2(player.position.x, player.position.y);
+        target = new Vector2(player.transform.position.x, player.transform.position.y);
     }
 
     // Update is called once per frame

@@ -14,6 +14,7 @@ public class Enemy_Pistol : MonoBehaviour
     public GameObject projectile;
     public GameObject metalParticleEffect;
     private Transform player;
+    private GameObject playerObject;
     public Transform firePoint;
     public Animator anim;
 
@@ -28,6 +29,7 @@ public class Enemy_Pistol : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerObject = GameObject.FindWithTag("Player");
 
         timeBtwShots = startTimeBtwShots;
 
@@ -62,6 +64,10 @@ public class Enemy_Pistol : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
 
+        if (playerObject.gameObject.GetComponent<PlayerController>().isDead == true)
+        {
+            timeBtwShots = 2000000f;
+        }
         // Handles projectile shooting from enemy
         if (timeBtwShots <= 0 && ammoAmount > 0)
         {

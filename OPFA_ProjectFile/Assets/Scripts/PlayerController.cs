@@ -64,6 +64,8 @@ public class PlayerController : MonoBehaviour
     public DashCoutdownTimer dashTimer;
 
     public GameObject deathScreen;
+    public GameObject afterDeathObject;
+    [HideInInspector] public bool isDead = false; 
 
     void Start()
     {
@@ -252,6 +254,9 @@ public class PlayerController : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            isDead = true;
+
+            afterDeathObject.SetActive(true);
             // Play death animation
             Instantiate(metalParticleEffect, transform.position, Quaternion.identity);
 
@@ -259,8 +264,6 @@ public class PlayerController : MonoBehaviour
             crosshair.SetActive(false);
             Cursor.visible = true;
             deathScreen.SetActive(true);
-
-            // Pause game
 
             gameObject.SetActive(false);
         }
