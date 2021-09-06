@@ -12,6 +12,7 @@ TagManager:
   - Wall
   - Crosshair
   - Health
+  - Big_Projectile
   layers:
   - Default
   - TransparentFX

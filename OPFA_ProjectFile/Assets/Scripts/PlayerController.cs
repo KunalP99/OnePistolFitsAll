@@ -19,8 +19,6 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem switchHugeParticleEffect;
     public ParticleSystem dashParticleEffect;
 
-    Animator anim;
-
     Vector2 movement;
 
     // Health variables
@@ -35,11 +33,14 @@ public class PlayerController : MonoBehaviour
     // Enemy damage variables
     private int batDamage = 20;
     private int pistolDamage = 30;
+    private int bigProjectileDamage = 50;
 
     // Dash variables
     private bool isDashButtonDown;
     private float cooldownTime = 2f;
-    private float nextDashTime = 0;
+    private float nextDashTime = 0;    
+    public DashCoutdownTimer dashTimer;
+    [HideInInspector] public bool dashUnlocked = false;
 
     BoxCollider2D playerCollider;
 
@@ -58,11 +59,6 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool hugePicked = true;
     [HideInInspector] public bool hugeFound = false;
 
-    bool isReloadingAnim = false;
-
-    // Timer variables
-    public DashCoutdownTimer dashTimer;
-
     public GameObject deathScreen;
     public GameObject afterDeathObject;
     [HideInInspector] public bool isDead = false; 
@@ -70,7 +66,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerCollider = gameObject.GetComponent<BoxCollider2D>();
-        anim = gameObject.GetComponent<Animator>();
         crosshair = GameObject.FindGameObjectWithTag("Crosshair");
 
         currentHealth = maxHealth;
@@ -95,7 +90,7 @@ public class PlayerController : MonoBehaviour
         // *DASH* + cooldown
         if (Time.time > nextDashTime)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Q) && dashUnlocked == true)
             {
                 nextDashTime = Time.time + cooldownTime;
 
@@ -247,6 +242,15 @@ public class PlayerController : MonoBehaviour
             healthBar.SetHealth(currentHealth);
 
             CameraShake.Instance.ShakeCamera(10f, 0.1f);
+        }
+
+
+        if (other.gameObject.tag == "Big_Projectile")
+        {
+            currentHealth -= bigProjectileDamage;
+            healthBar.SetHealth(currentHealth);
+
+            CameraShake.Instance.ShakeCamera(15f, 0.3f);
         }
     }
 

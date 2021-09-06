@@ -34,12 +34,25 @@ public class WaveSpawner : MonoBehaviour
 
     public Animator anim;
     public PistolWaveSpawner pistolWaveSpawner;
+    public PlayerController player;
 
     public GameObject medkit;
     bool myMedkit = true;
 
+    public Transform[] projectileSpawnPoints;
+    public GameObject rightProjectile;
+    public GameObject leftProjectile;
+    public GameObject upProjectile;
+    public GameObject downProjectile;
+    bool projectileSpawned = false;
+
     // Weapons
     public GameObject smgPickup;
+
+    // UI variables
+    public GameObject dashText;
+
+    [SerializeField]int randomNum;
 
     void Start()
     {
@@ -68,10 +81,56 @@ public class WaveSpawner : MonoBehaviour
             myMedkit = false;
         }
 
+        if (state == SpawnState.COUNTING && nextWave >= 6)
+        {
+            player.dashUnlocked = true;
+            dashText.SetActive(true);
+        }
+
         // Spawn weapons
         if (nextWave == 10 && smgPickup != null)
         {
             smgPickup.SetActive(true);
+        }
+
+        // Spawn Big Projectiles
+        if (nextWave == 6 && state == SpawnState.SPAWNING && projectileSpawned == true)
+        {
+            if (randomNum <= 4)
+            {
+                SpawnProjectileRight();
+                projectileSpawned = false;
+            }
+            else if (randomNum >= 5)
+            {
+                SpawnProjectileLeft();
+                projectileSpawned = false;
+            }
+
+        }
+        else if (nextWave > 6 && state == SpawnState.SPAWNING && projectileSpawned == true)
+        {
+            // Randomly spawn one of the four projectiles depending on what random number is generated
+            if (randomNum == 1)
+            {
+                SpawnProjectileRight();
+                projectileSpawned = false;
+            }
+            else if (randomNum == 2)
+            {
+                SpawnProjectileLeft();
+                projectileSpawned = false;
+            }
+            else if (randomNum == 3)
+            {
+                SpawnProjectileUp();
+                projectileSpawned = false;
+            }
+            else if (randomNum == 4)
+            {
+                SpawnProjectileDown();
+                projectileSpawned = false;
+            }
         }
 
         // Wave completion 
@@ -82,6 +141,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 // Begin a new wave
                 WaveCompleted();
+                randomNum = Random.Range(0, 9);
                 waveText.text = "Wave: " + nextWave.ToString();
             }
             else
@@ -115,6 +175,11 @@ public class WaveSpawner : MonoBehaviour
             myMedkit = true;
         }
 
+        if (projectileSpawned == false)
+        {
+            projectileSpawned = true;
+        }
+
         // Play countdown animation
         anim.SetTrigger("start");
 
@@ -125,7 +190,6 @@ public class WaveSpawner : MonoBehaviour
         if (nextWave + 1 > waves.Length - 1)
         {
             // This is where we can add the finish game screen 
-            //nextWave = 0;
             Debug.Log("ALL WAVES COMPLETED!");
         }
         else
@@ -182,5 +246,29 @@ public class WaveSpawner : MonoBehaviour
     {
         Transform _medSp = medSpawnPoints[Random.Range(0, medSpawnPoints.Length)];
         Instantiate(medkit, _medSp.position, _medSp.rotation);
+    }
+
+    void SpawnProjectileRight()
+    {
+        Transform _projectileSp = projectileSpawnPoints[0];
+        Instantiate(rightProjectile, _projectileSp.position, _projectileSp.rotation);
+    }
+
+    void SpawnProjectileLeft()
+    {
+        Transform _projectileSp = projectileSpawnPoints[1];
+        Instantiate(leftProjectile, _projectileSp.position, _projectileSp.rotation);
+    }
+
+    void SpawnProjectileUp()
+    {
+        Transform _projectileSp = projectileSpawnPoints[2];
+        Instantiate(upProjectile, _projectileSp.position, _projectileSp.rotation);
+    }
+
+    void SpawnProjectileDown()
+    {
+        Transform _projectileSp = projectileSpawnPoints[3];
+        Instantiate(downProjectile, _projectileSp.position, _projectileSp.rotation);
     }
 }

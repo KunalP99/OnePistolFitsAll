@@ -83,7 +83,6 @@ public class PistolWaveSpawner : MonoBehaviour
         if (nextWave + 1 > waves.Length - 1)
         {
             // This is where we can add the finish game screen 
-            nextWave = 0;
             Debug.Log("ALL WAVES COMPLETED!");
         }
         else

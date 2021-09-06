@@ -27,7 +27,14 @@ public class Bullet : MonoBehaviour
         else if (other.gameObject.tag == "Wall")
         {
             Destroy(gameObject);
+        } 
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Big_Projectile")
+        {
+            Destroy(gameObject);
         }
-        
     }
 }
