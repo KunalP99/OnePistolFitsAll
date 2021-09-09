@@ -48,9 +48,12 @@ public class WaveSpawner : MonoBehaviour
 
     // Weapons
     public GameObject smgPickup;
+    public GameObject hugePickup;
 
     // UI variables
     public GameObject dashText;
+    public GameObject smgText;
+    public GameObject hugeText;
 
     [SerializeField]int randomNum;
 
@@ -81,10 +84,21 @@ public class WaveSpawner : MonoBehaviour
             myMedkit = false;
         }
 
+        // Unlock text
         if (state == SpawnState.COUNTING && nextWave >= 6)
         {
             player.dashUnlocked = true;
             dashText.SetActive(true);
+        }
+        
+        if (player.smgFound == true && nextWave >= 10)
+        {
+            smgText.SetActive(true);
+        }
+
+        if (player.hugeFound == true && nextWave >= 16)
+        {
+            hugeText.SetActive(true);
         }
 
         // Spawn weapons
@@ -92,8 +106,13 @@ public class WaveSpawner : MonoBehaviour
         {
             smgPickup.SetActive(true);
         }
+        else if (nextWave == 16 && hugePickup != null)
+        {
+            hugePickup.SetActive(true);
+        }
 
         // Spawn Big Projectiles
+        // This wave will always spawn a big projectile on wave 6 so player can test dash ability
         if (nextWave == 6 && state == SpawnState.SPAWNING && projectileSpawned == true)
         {
             if (randomNum <= 4)
