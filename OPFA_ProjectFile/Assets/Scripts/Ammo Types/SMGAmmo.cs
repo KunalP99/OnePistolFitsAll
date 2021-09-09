@@ -18,6 +18,8 @@ public class SMGAmmo : MonoBehaviour
     public float fireRate = 15f;
     private float nextTimeToFire = 0f;
 
+    public GameObject pauseMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +39,7 @@ public class SMGAmmo : MonoBehaviour
         if (smgCurrentBullets > 0)
         {
             // *FIRE*
-            if (Input.GetButton("Fire1") && smgAmmoAmount > 0 && Time.time >= nextTimeToFire)
+            if (Input.GetButton("Fire1") && smgAmmoAmount > 0 && Time.time >= nextTimeToFire && !pauseMenu.activeSelf)
             {
                 Shoot();
                 smgCurrentBullets--;

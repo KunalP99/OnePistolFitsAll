@@ -16,6 +16,8 @@ public class RegularAmmo : MonoBehaviour
     public float fireRate = 15f;
     private float nextTimeToFire = 0f;
 
+    public GameObject pauseMenu;
+
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -30,7 +32,7 @@ public class RegularAmmo : MonoBehaviour
         }
 
         // *FIRE*
-        if (Input.GetButtonDown("Fire1") && regularAmmoAmount > 0 && Time.time >= nextTimeToFire)
+        if (Input.GetButtonDown("Fire1") && regularAmmoAmount > 0 && Time.time >= nextTimeToFire && !pauseMenu.activeSelf)
         {
             Shoot();
         }

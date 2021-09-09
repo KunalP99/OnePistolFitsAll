@@ -18,11 +18,13 @@ public class MainMenu : MonoBehaviour
 
     public void RestartLevel()
     {
+        Time.timeScale = 1;
         StartCoroutine(LoadLevelFromGame(SceneManager.GetActiveScene().buildIndex));
     }
 
     public void BackToMenu()
     {
+        Time.timeScale = 1;
         StartCoroutine(LoadLevelFromGame(SceneManager.GetActiveScene().buildIndex - 1));
     }
 

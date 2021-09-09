@@ -58,12 +58,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Menu\ChangeText.cs" />
     <Compile Include="Assets\Scripts\Enemies\Bat.cs" />
-    <Compile Include="Assets\Scripts\Menu\Pistol_Menu.cs" />
+    <Compile Include="Assets\Scripts\Menu\PistolMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Other\CameraShake.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\Items\Medkit.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyHealthBar.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Big Projectiles\DownBigProjectile.cs" />
     <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Wave Spawners\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Items\SMGPickup.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Scripts\Items\HugePickup.cs" />
     <Compile Include="Assets\Scripts\Items\AmmoCrate.cs" />
     <Compile Include="Assets\Scripts\Enemies\Enemy Pistol\Enemy_Pistol.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Big Projectiles\UpBigProjectile.cs" />
     <Compile Include="Assets\Scripts\Enemies\Big Projectiles\LeftBigProjectile.cs" />
     <Compile Include="Assets\Scripts\Timers\SmgSwitchTimer.cs" />
     <Compile Include="Assets\Scripts\Crosshair.cs" />
@@ -83,8 +85,9 @@
     <Compile Include="Assets\Scripts\Wave Spawners\PistolWaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Timers\DashCoutdownTimer.cs" />
     <Compile Include="Assets\Scripts\Ammo Types\HugeAmmo.cs" />
-    <Compile Include="Assets\Scripts\Enemies\Big Projectiles\UpBigProjectile.cs" />
-    <Compile Include="Assets\Scripts\Enemies\Big Projectiles\DownBigProjectile.cs" />
+    <Compile Include="Assets\Scripts\Menu\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\Cutscenes\IntroCutscene.cs" />
+    <Compile Include="Assets\Scripts\Cutscenes\BatIntroCutscene.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
