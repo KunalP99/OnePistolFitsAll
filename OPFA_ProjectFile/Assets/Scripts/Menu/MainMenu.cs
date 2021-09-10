@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1;
-        StartCoroutine(LoadLevelFromGame(SceneManager.GetActiveScene().buildIndex - 1));
+        StartCoroutine(LoadLevelFromGame(0));
     }
 
     IEnumerator LoadLevelFromMenu(int LevelIndex)

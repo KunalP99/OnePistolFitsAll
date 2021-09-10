@@ -23,7 +23,7 @@ public class WaveSpawner : MonoBehaviour
     public TextMeshProUGUI waveText;
 
     public Transform[] spawnPoints;
-    public Transform[] medSpawnPoints;
+    public Transform[] itemSpawnPoints;
 
     public float timeBetweenWaves = 5f;
     public float waveCountdown;
@@ -37,7 +37,9 @@ public class WaveSpawner : MonoBehaviour
     public PlayerController player;
 
     public GameObject medkit;
+    public GameObject ammoCrate;
     bool myMedkit = true;
+    bool myAmmoCrate = true;
 
     public Transform[] projectileSpawnPoints;
     public GameObject rightProjectile;
@@ -80,8 +82,13 @@ public class WaveSpawner : MonoBehaviour
         // Spawn items
         if (state == SpawnState.COUNTING && nextWave % 5 == 0 && nextWave > 0 && myMedkit == true) // Multiple of 5, every 5 waves
         {
-            SpawnMedkit();
             myMedkit = false;
+            SpawnMedkit();
+        }
+        else if (state == SpawnState.COUNTING && nextWave % 3 == 0 && nextWave > 10 && myAmmoCrate == true)
+        {
+            myAmmoCrate = false;
+            SpawnAmmoCrate();
         }
 
         // Unlock text
@@ -189,9 +196,15 @@ public class WaveSpawner : MonoBehaviour
     {
         Debug.Log("Wave Complete");
 
+        // Turn boolean to true so that at the next appropiate wave, item will spawn only once
         if (myMedkit == false)
         {
             myMedkit = true;
+        }
+
+        if (myAmmoCrate == false)
+        {
+            myAmmoCrate = true;
         }
 
         if (projectileSpawned == false)
@@ -263,8 +276,14 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnMedkit()
     {
-        Transform _medSp = medSpawnPoints[Random.Range(0, medSpawnPoints.Length)];
+        Transform _medSp = itemSpawnPoints[Random.Range(0, itemSpawnPoints.Length)];
         Instantiate(medkit, _medSp.position, _medSp.rotation);
+    }
+
+    void SpawnAmmoCrate()
+    {
+        Transform _ammoSp = itemSpawnPoints[Random.Range(0, itemSpawnPoints.Length)];
+        Instantiate(ammoCrate, _ammoSp.position, _ammoSp.rotation);
     }
 
     void SpawnProjectileRight()

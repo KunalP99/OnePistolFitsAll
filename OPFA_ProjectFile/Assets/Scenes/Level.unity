@@ -1176,7 +1176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 193751852}
   m_Layer: 0
-  m_Name: MedkitSpawner8
+  m_Name: ItemSpawner8
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1189,11 +1189,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193751851}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 13.75, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
+  m_Father: {fileID: 1333079287}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &210194879
@@ -1458,7 +1458,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 536433807}
-  - {fileID: 652700389}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2400,7 +2399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 426173280}
   m_Layer: 0
-  m_Name: MedkitSpawner1
+  m_Name: ItemSpawner1
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2413,11 +2412,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426173279}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
+  m_Father: {fileID: 1333079287}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &428843505
@@ -2430,7 +2429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 428843506}
   m_Layer: 0
-  m_Name: MedkitSpawner12
+  m_Name: ItemSpawner12
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2443,11 +2442,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428843505}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -7.24, y: -7.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
+  m_Father: {fileID: 1333079287}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &432212149
@@ -3040,7 +3039,7 @@ GameObject:
   m_Component:
   - component: {fileID: 501902288}
   m_Layer: 0
-  m_Name: MedkitSpawner3
+  m_Name: ItemSpawner3
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3053,11 +3052,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501902287}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -7.27, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
+  m_Father: {fileID: 1333079287}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &513260012
@@ -3593,7 +3592,6 @@ MonoBehaviour:
   hugePicked: 1
   hugeFound: 0
   deathScreen: {fileID: 49635828}
-  afterDeathObject: {fileID: 652700388}
   isDead: 0
 --- !u!212 &536433811
 SpriteRenderer:
@@ -3966,36 +3964,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &652700388
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 652700389}
-  m_Layer: 0
-  m_Name: 'After Death '
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &652700389
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652700388}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 234332924}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &653761622
 GameObject:
   m_ObjectHideFlags: 0
@@ -4063,7 +4031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 656015096}
   m_Layer: 0
-  m_Name: MedkitSpawner2
+  m_Name: ItemSpawner2
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4076,11 +4044,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656015095}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 6.72, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
+  m_Father: {fileID: 1333079287}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &658677340 stripped
@@ -5225,7 +5193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 908684260}
   m_Layer: 0
-  m_Name: MedkitSpawner15
+  m_Name: ItemSpawner15
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5238,57 +5206,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908684259}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -13.78, y: 5.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &926318708
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 926318709}
-  m_Layer: 0
-  m_Name: Medkit Spawners
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &926318709
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926318708}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 426173280}
-  - {fileID: 656015096}
-  - {fileID: 501902288}
-  - {fileID: 2062267327}
-  - {fileID: 2103337158}
-  - {fileID: 1466594092}
-  - {fileID: 949094501}
-  - {fileID: 193751852}
-  - {fileID: 1258017550}
-  - {fileID: 2013481495}
-  - {fileID: 1017898575}
-  - {fileID: 428843506}
-  - {fileID: 1540909240}
-  - {fileID: 1961815218}
-  - {fileID: 908684260}
   m_Father: {fileID: 1333079287}
-  m_RootOrder: 0
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &935149004
 GameObject:
@@ -5454,7 +5377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 949094501}
   m_Layer: 0
-  m_Name: MedkitSpawner7
+  m_Name: ItemSpawner7
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5467,11 +5390,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949094500}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 13.75, y: 5.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
+  m_Father: {fileID: 1333079287}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &987103191
@@ -14283,7 +14206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1017898575}
   m_Layer: 0
-  m_Name: MedkitSpawner11
+  m_Name: ItemSpawner11
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -14296,11 +14219,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017898574}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.02, y: -7.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
+  m_Father: {fileID: 1333079287}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1021111068
@@ -16093,7 +16016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1258017550}
   m_Layer: 0
-  m_Name: MedkitSpawner9
+  m_Name: ItemSpawner9
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -16106,11 +16029,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258017549}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 13.75, y: -7.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
+  m_Father: {fileID: 1333079287}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1271841822
@@ -16351,7 +16274,7 @@ MonoBehaviour:
     batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
     count: 30
     rate: 0.5
-  nextWave: 0
+  nextWave: 11
   waveText: {fileID: 1096194835}
   spawnPoints:
   - {fileID: 1110004192}
@@ -16366,7 +16289,7 @@ MonoBehaviour:
   - {fileID: 304996135}
   - {fileID: 2003957921}
   - {fileID: 1839606725}
-  medSpawnPoints:
+  itemSpawnPoints:
   - {fileID: 426173280}
   - {fileID: 656015096}
   - {fileID: 501902288}
@@ -16388,6 +16311,7 @@ MonoBehaviour:
   pistolWaveSpawner: {fileID: 1288894772}
   player: {fileID: 536433810}
   medkit: {fileID: 8962610523016057530, guid: b31c59f23a40a8e42a0066f86ad0ccd9, type: 3}
+  ammoCrate: {fileID: 1391687453024781727, guid: 6daca9bc4e0375c4f8c78f5f74626653, type: 3}
   projectileSpawnPoints:
   - {fileID: 359593122}
   - {fileID: 1614245803}
@@ -16898,7 +16822,21 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 926318709}
+  - {fileID: 426173280}
+  - {fileID: 656015096}
+  - {fileID: 501902288}
+  - {fileID: 2062267327}
+  - {fileID: 2103337158}
+  - {fileID: 1466594092}
+  - {fileID: 949094501}
+  - {fileID: 193751852}
+  - {fileID: 1258017550}
+  - {fileID: 2013481495}
+  - {fileID: 1017898575}
+  - {fileID: 428843506}
+  - {fileID: 1540909240}
+  - {fileID: 1961815218}
+  - {fileID: 908684260}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18209,7 +18147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1466594092}
   m_Layer: 0
-  m_Name: MedkitSpawner6
+  m_Name: ItemSpawner6
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -18222,11 +18160,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466594091}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.3, y: 5.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
+  m_Father: {fileID: 1333079287}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1472677384
@@ -18810,7 +18748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1540909240}
   m_Layer: 0
-  m_Name: MedkitSpawner13
+  m_Name: ItemSpawner13
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -18823,11 +18761,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540909239}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -13.78, y: -7.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
+  m_Father: {fileID: 1333079287}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1548389805
@@ -19575,7 +19513,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1788659577}
   crosshair: {fileID: 1769029807}
-  anim: {fileID: 0}
 --- !u!114 &1732254769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21149,7 +21086,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1961815218}
   m_Layer: 0
-  m_Name: MedkitSpawner14
+  m_Name: ItemSpawner14
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -21162,11 +21099,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961815217}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -13.78, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
+  m_Father: {fileID: 1333079287}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1989026555
@@ -26350,7 +26287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2013481495}
   m_Layer: 0
-  m_Name: MedkitSpawner10
+  m_Name: ItemSpawner10
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -26363,11 +26300,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013481494}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.04, y: -7.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
+  m_Father: {fileID: 1333079287}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2018596888
@@ -26812,7 +26749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2062267327}
   m_Layer: 0
-  m_Name: MedkitSpawner4
+  m_Name: ItemSpawner4
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -26825,11 +26762,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062267326}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -7.27, y: 5.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
+  m_Father: {fileID: 1333079287}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2065529748 stripped
@@ -26847,7 +26784,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2103337158}
   m_Layer: 0
-  m_Name: MedkitSpawner5
+  m_Name: ItemSpawner5
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -26860,11 +26797,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103337157}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 5.83, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 926318709}
+  m_Father: {fileID: 1333079287}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7453618107177711664

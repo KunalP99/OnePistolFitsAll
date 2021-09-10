@@ -60,7 +60,6 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool hugeFound = false;
 
     public GameObject deathScreen;
-    public GameObject afterDeathObject;
     [HideInInspector] public bool isDead = false; 
 
     void Start()
@@ -260,7 +259,6 @@ public class PlayerController : MonoBehaviour
         {
             isDead = true;
 
-            afterDeathObject.SetActive(true);
             // Play death animation
             Instantiate(metalParticleEffect, transform.position, Quaternion.identity);
 
