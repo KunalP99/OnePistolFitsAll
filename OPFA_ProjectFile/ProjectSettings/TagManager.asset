@@ -13,6 +13,7 @@ TagManager:
   - Crosshair
   - Health
   - Big_Projectile
+  - Boss
   layers:
   - Default
   - TransparentFX

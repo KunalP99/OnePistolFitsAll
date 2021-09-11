@@ -60,9 +60,11 @@
     <Compile Include="Assets\Scripts\Enemies\Bat.cs" />
     <Compile Include="Assets\Scripts\Menu\PistolMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Cutscenes\IntroCutscene.cs" />
     <Compile Include="Assets\Scripts\Other\CameraShake.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\Items\Medkit.cs" />
+    <Compile Include="Assets\Scripts\Menu\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyHealthBar.cs" />
     <Compile Include="Assets\Scripts\Enemies\Big Projectiles\DownBigProjectile.cs" />
     <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
@@ -82,12 +84,12 @@
     <Compile Include="Assets\Scripts\Timers\SmgSwitchTimer.cs" />
     <Compile Include="Assets\Scripts\Crosshair.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Cutscenes\BatIntroCutscene.cs" />
     <Compile Include="Assets\Scripts\Wave Spawners\PistolWaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Timers\DashCoutdownTimer.cs" />
     <Compile Include="Assets\Scripts\Ammo Types\HugeAmmo.cs" />
-    <Compile Include="Assets\Scripts\Menu\PauseMenu.cs" />
-    <Compile Include="Assets\Scripts\Cutscenes\IntroCutscene.cs" />
-    <Compile Include="Assets\Scripts\Cutscenes\BatIntroCutscene.cs" />
+    <Compile Include="Assets\Boss_Move.cs" />
+    <Compile Include="Assets\Boss_Attack.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

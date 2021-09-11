@@ -14,6 +14,9 @@ TextureImporter:
   - first:
       213: 6820856509940793013
     second: Guns_3
+  - first:
+      213: -4583253144846247162
+    second: Guns_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -174,7 +177,7 @@ TextureImporter:
         width: 29
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,6 +185,27 @@ TextureImporter:
       bones: []
       spriteID: 5be7eea7bdc88ae50800000000000000
       internalID: 6820856509940793013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guns_4
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 40
+        width: 46
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60b5fb14c830560c0800000000000000
+      internalID: -4583253144846247162
       vertices: []
       indices: 
       edges: []
