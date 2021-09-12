@@ -28,6 +28,10 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         } 
+        else if (other.gameObject.tag == "Boss")
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
