@@ -12,7 +12,7 @@ public class Boss_Shoot : MonoBehaviour
 
     // Projectile spread
     Vector2 startPoint;
-    float radius = 5f;
+    float radius = 10f;
     float spreadProjectileSpeed = 7f;
 
 

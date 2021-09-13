@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Boss_Health : MonoBehaviour
 {
-    float maxHealth = 5000f;
+    float maxHealth = 6000f;
 
     public float currentHealth;
 

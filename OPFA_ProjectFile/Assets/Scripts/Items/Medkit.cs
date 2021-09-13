@@ -17,7 +17,7 @@ public class Medkit : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            player.GetComponent<PlayerController>().currentHealth = 100;
+            player.GetComponent<PlayerController>().currentHealth = 300;
             healthBar.GetComponent<Health>().SetHealth(player.GetComponent<PlayerController>().currentHealth);
 
             Destroy(gameObject);

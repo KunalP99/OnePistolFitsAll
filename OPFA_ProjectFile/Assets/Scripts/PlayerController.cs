@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -61,8 +62,11 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool hugePicked = true;
     [HideInInspector] public bool hugeFound = false;
 
+    bool isBossSpawned = false;
+    public WaveSpawner waveSpawner;
+
     public GameObject deathScreen;
-    [HideInInspector] public bool isDead = false; 
+    [HideInInspector] public bool isDead = false;
 
     void Start()
     {
@@ -71,6 +75,22 @@ public class PlayerController : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+
+        Scene scene = SceneManager.GetActiveScene();
+
+        if (scene.name == "Boss_Fight")
+        {
+            isBossSpawned = true;
+
+            if (isBossSpawned == true)
+            {
+                waveSpawner.enabled = false;
+                smgFound = true;
+                hugeFound = true;
+                dashUnlocked = true;
+                // Change wave text to "Wave: X"
+            }
+        }
     }
 
     // Update is called once per frame, noy good when dealing with physics to use Update(), as framerate can constantly change, so use FixedUpdate() instead

@@ -11,6 +11,18 @@ public class MainMenu : MonoBehaviour
     public GameObject settingsButton;
     public GameObject quitButton;
 
+    private PlayerController player;
+    private WaveSpawner waveSpawner;
+
+    void Start()
+    {
+        GameObject pistol = GameObject.Find("Pistol");
+        player = pistol.GetComponent<PlayerController>();
+
+        GameObject spawner = GameObject.Find("Pistol");
+        waveSpawner = spawner.GetComponent<WaveSpawner>();
+    }
+
     public void PlayGame()
     {
         StartCoroutine(LoadLevelFromMenu(SceneManager.GetActiveScene().buildIndex + 1));
@@ -18,6 +30,7 @@ public class MainMenu : MonoBehaviour
 
     public void RestartLevel()
     {
+        // If boss has spawned and player restarts level, restart at point where boss spawns; disable wave spawner, set boss to active
         Time.timeScale = 1;
         StartCoroutine(LoadLevelFromGame(SceneManager.GetActiveScene().buildIndex));
     }

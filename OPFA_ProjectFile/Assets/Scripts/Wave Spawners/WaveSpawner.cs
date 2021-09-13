@@ -221,7 +221,7 @@ public class WaveSpawner : MonoBehaviour
         // Checks to see if the waves exceed the wave length 
         if (nextWave + 1 > waves.Length - 1)
         {
-            // This is where we can add the finish game screen 
+            // ADD CUTSCENE BEFORE BOSS FIGHT
             Debug.Log("ALL WAVES COMPLETED!");
         }
         else

@@ -90,10 +90,10 @@
     <Compile Include="Assets\Scripts\Crosshair.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Cutscenes\BatIntroCutscene.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Boss\Boss_Small_Projectiles.cs" />
     <Compile Include="Assets\Scripts\Wave Spawners\PistolWaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Timers\DashCoutdownTimer.cs" />
     <Compile Include="Assets\Scripts\Ammo Types\HugeAmmo.cs" />
-    <Compile Include="Assets\Scripts\Enemies\Boss\Boss_Small_Projectiles.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
