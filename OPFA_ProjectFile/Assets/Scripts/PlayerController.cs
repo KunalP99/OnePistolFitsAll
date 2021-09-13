@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
         Scene scene = SceneManager.GetActiveScene();
 
+        // When Boss Fight scene is loaded, certain booleans are activated, and wave spawner is deactivated
         if (scene.name == "Boss_Fight")
         {
             isBossSpawned = true;

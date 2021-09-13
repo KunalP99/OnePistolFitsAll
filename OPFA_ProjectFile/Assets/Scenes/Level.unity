@@ -2467,7 +2467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &432212150
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3573,7 +3573,7 @@ MonoBehaviour:
   switchSmgParticleEffect: {fileID: 1274934377}
   switchHugeParticleEffect: {fileID: 658677342}
   dashParticleEffect: {fileID: 2005508121}
-  maxHealth: 300
+  maxHealth: 10000
   currentHealth: 0
   healthBar: {fileID: 1350709592}
   dashTimer: {fileID: 1686665721}
@@ -16307,7 +16307,7 @@ MonoBehaviour:
     batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
     count: 35
     rate: 1
-  nextWave: 0
+  nextWave: 29
   waveText: {fileID: 1096194835}
   spawnPoints:
   - {fileID: 1110004192}
@@ -16343,6 +16343,8 @@ MonoBehaviour:
   anim: {fileID: 1989026557}
   pistolWaveSpawner: {fileID: 1288894772}
   player: {fileID: 536433810}
+  transition: {fileID: 1732254769}
+  timer: {fileID: 1989026555}
   medkit: {fileID: 8962610523016057530, guid: b31c59f23a40a8e42a0066f86ad0ccd9, type: 3}
   ammoCrate: {fileID: 1391687453024781727, guid: 6daca9bc4e0375c4f8c78f5f74626653, type: 3}
   projectileSpawnPoints:
@@ -26508,7 +26510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2047108061
 Transform:
   m_ObjectHideFlags: 0

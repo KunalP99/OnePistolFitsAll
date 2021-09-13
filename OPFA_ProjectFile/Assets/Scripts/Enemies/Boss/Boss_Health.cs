@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Boss_Health : MonoBehaviour
 {
-    float maxHealth = 6000f;
+    float maxHealth = 10000f;
 
     public float currentHealth;
 
@@ -25,8 +25,6 @@ public class Boss_Health : MonoBehaviour
     {
         if (stage2Active == true && isProjectileRunning == false)
         {
-            // Spawn medkit??
-
             pulseProjectile.StartCoroutine(GetComponent<Boss_Pulse_Projectile>().Pulse());
             //pulseProjectile.Pulse1();
             isProjectileRunning = true;
@@ -38,8 +36,7 @@ public class Boss_Health : MonoBehaviour
         
         if (stage3Active == true && isSpreadProjectileRunning == false)
         {
-            // Spawn medkit??
-
+            // Spawn ammo crate??
             pulseProjectile.StartCoroutine(GetComponent<Boss_Pulse_Projectile>().RandomSpread());
 
             isSpreadProjectileRunning = true;
@@ -66,12 +63,12 @@ public class Boss_Health : MonoBehaviour
         currentHealth -= damage;
 
 
-        if (currentHealth <= 4000)
+        if (currentHealth <= 4500)
         {
             stage2Active = true;
         }
         
-        if (currentHealth <= 2500)
+        if (currentHealth <= 2000)
         {
             stage3Active = true;
         }

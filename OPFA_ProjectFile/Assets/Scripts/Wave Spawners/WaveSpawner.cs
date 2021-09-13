@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -35,6 +36,9 @@ public class WaveSpawner : MonoBehaviour
     public Animator anim;
     public PistolWaveSpawner pistolWaveSpawner;
     public PlayerController player;
+    public MainMenu transition;
+
+    public GameObject timer;
 
     public GameObject medkit;
     public GameObject ammoCrate;
@@ -63,6 +67,8 @@ public class WaveSpawner : MonoBehaviour
     {
         anim.SetTrigger("start");
         waveCountdown = timeBetweenWaves;
+
+        waveText.text = "Wave: " + nextWave.ToString();
 
         // Error check for number of spawn points
         if (spawnPoints.Length == 0)
@@ -222,10 +228,15 @@ public class WaveSpawner : MonoBehaviour
         if (nextWave + 1 > waves.Length - 1)
         {
             // ADD CUTSCENE BEFORE BOSS FIGHT
+            timer.SetActive(false);
+            StartCoroutine(Wait());
+            // Change to next scene in build index (in this case, the cutscene before the boss fight)
+            transition.PlayGame();
             Debug.Log("ALL WAVES COMPLETED!");
         }
         else
         {
+            // Progress to next wave
             nextWave++;
         }
     }
@@ -238,7 +249,8 @@ public class WaveSpawner : MonoBehaviour
         {
             searchCountdown = 1f;
 
-            if (GameObject.FindGameObjectWithTag("Bat") == null && GameObject.FindGameObjectWithTag("Pistol_Enemy") == null) // If there are bat enemies than return false
+            // If there are bat enemies than return false and no pistol enemies than return false
+            if (GameObject.FindGameObjectWithTag("Bat") == null && GameObject.FindGameObjectWithTag("Pistol_Enemy") == null) 
             {
                 return false;
             }
@@ -263,6 +275,11 @@ public class WaveSpawner : MonoBehaviour
 
         state = SpawnState.WAITING;
         yield break;
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(6f);
     }
 
     void SpawnEnemy(Transform _enemy)
