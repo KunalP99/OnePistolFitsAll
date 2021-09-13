@@ -16,6 +16,7 @@ TagManager:
   - Boss
   - Boss_Projectile
   - Boss_Projectile_Particles
+  - Boss_Small_Projectile
   layers:
   - Default
   - TransparentFX

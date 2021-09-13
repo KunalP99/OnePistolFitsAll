@@ -7,9 +7,9 @@ public class Boss_Projectile : MonoBehaviour
     private Rigidbody2D rb;
     private PlayerController player;
     private Boss_Shoot bossProjectile;
+    public ParticleSystem particles;
 
     public float randomSpeed;
-    public GameObject particles;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class Boss_Projectile : MonoBehaviour
         GameObject boss = GameObject.Find("Boss");
         bossProjectile = boss.GetComponent<Boss_Shoot>();
 
-        particles = GameObject.FindGameObjectWithTag("Boss_Projectile_Particles");
+        particles = GameObject.FindGameObjectWithTag("Boss_Projectile_Particles").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -45,7 +45,8 @@ public class Boss_Projectile : MonoBehaviour
         }
         else if (other.gameObject.tag == "Wall")
         {
-            bossProjectile.SpawnProjectile(20);
+            Instantiate(particles, transform.position, Quaternion.identity);
+
             gameObject.SetActive(false);
         }
     }

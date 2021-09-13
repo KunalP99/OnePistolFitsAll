@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private int pistolDamage = 30;
     private int bigProjectileDamage = 40;
     private int bossProjectileDamage = 50;
+    private int bossSmallProjectileDamage = 20;
 
     // Dash variables
     private bool isDashButtonDown;
@@ -244,7 +245,6 @@ public class PlayerController : MonoBehaviour
             CameraShake.Instance.ShakeCamera(10f, 0.1f);
         }
 
-
         if (other.gameObject.tag == "Big_Projectile")
         {
             currentHealth -= bigProjectileDamage;
@@ -259,6 +259,14 @@ public class PlayerController : MonoBehaviour
             healthBar.SetHealth(currentHealth);
 
             CameraShake.Instance.ShakeCamera(15f, 0.3f);
+        }
+
+        if (other.gameObject.tag == "Boss_Small_Projectile")
+        {
+            currentHealth -= bossSmallProjectileDamage;
+            healthBar.SetHealth(currentHealth);
+
+            CameraShake.Instance.ShakeCamera(10f, 0.3f);
         }
     }
 

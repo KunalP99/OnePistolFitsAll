@@ -49,7 +49,6 @@ public class Boss_Move : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("Fire");
-        animator.ResetTrigger("Reload");
     }
 
     private void Rotate(Vector2 target)

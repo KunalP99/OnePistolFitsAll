@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Enemies\Boss\Boss_Projectile.cs" />
     <Compile Include="Assets\Scripts\Menu\PistolMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Boss\Boss_Pulse_Projectile.cs" />
     <Compile Include="Assets\Scripts\Cutscenes\IntroCutscene.cs" />
     <Compile Include="Assets\Scripts\Other\CameraShake.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Assets\Scripts\Wave Spawners\PistolWaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Timers\DashCoutdownTimer.cs" />
     <Compile Include="Assets\Scripts\Ammo Types\HugeAmmo.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Boss\Boss_Small_Projectiles.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
