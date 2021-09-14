@@ -60,7 +60,7 @@
     <Compile Include="Assets\Scripts\Enemies\Boss\Boss_Shoot.cs" />
     <Compile Include="Assets\Scripts\Enemies\Bat.cs" />
     <Compile Include="Assets\Scripts\Enemies\Boss\Boss_Projectile.cs" />
-    <Compile Include="Assets\Scripts\Menu\PistolMenu.cs" />
+    <Compile Include="Assets\Scripts\Menu\Main Menu\PistolMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Enemies\Boss\Boss_Pulse_Projectile.cs" />
     <Compile Include="Assets\Scripts\Cutscenes\IntroCutscene.cs" />
@@ -70,7 +70,7 @@
     <Compile Include="Assets\Scripts\Menu\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyHealthBar.cs" />
     <Compile Include="Assets\Scripts\Enemies\Big Projectiles\DownBigProjectile.cs" />
-    <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Menu\Main Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Wave Spawners\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Items\SMGPickup.cs" />
     <Compile Include="Assets\Scripts\Ammo Types\SMGAmmo.cs" />
@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Enemies\Boss\Boss_Health.cs" />
     <Compile Include="Assets\Scripts\Enemies\Big Projectiles\LeftBigProjectile.cs" />
     <Compile Include="Assets\Scripts\Timers\SmgSwitchTimer.cs" />
+    <Compile Include="Assets\Scripts\Cutscenes\BossFightCutscene.cs" />
     <Compile Include="Assets\Scripts\Crosshair.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Cutscenes\BatIntroCutscene.cs" />
@@ -94,7 +95,7 @@
     <Compile Include="Assets\Scripts\Wave Spawners\PistolWaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Timers\DashCoutdownTimer.cs" />
     <Compile Include="Assets\Scripts\Ammo Types\HugeAmmo.cs" />
-    <Compile Include="Assets\Scripts\Cutscenes\BossFightCutscene.cs" />
+    <Compile Include="Assets\Scripts\Menu\Main Menu\SettingsController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

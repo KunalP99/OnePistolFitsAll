@@ -29,7 +29,7 @@ public class Boss_Health : MonoBehaviour
             //pulseProjectile.Pulse1();
             isProjectileRunning = true;
 
-            StartCoroutine(Wait(5f));
+            StartCoroutine(Wait(4f));
 
             Debug.Log("Run pulse projectile");
         }
@@ -87,5 +87,11 @@ public class Boss_Health : MonoBehaviour
     public void Death()
     {
         Destroy(gameObject);
+
+        // Wait for x amount of seconds
+        StartCoroutine(Wait(40f));
+
+        // Move to next cut scene
+        Debug.Log("Game complete");
     }
 }
