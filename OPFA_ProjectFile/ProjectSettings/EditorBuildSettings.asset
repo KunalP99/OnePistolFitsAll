@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Boss_Fight.unity
     guid: 812cd84d5b729db4eaf60b176dbec83d
+  - enabled: 1
+    path: Assets/Scenes/End_Cutscene.unity
+    guid: 02e65ac4930359043ae9632a1b11de40
   m_configObjects: {}

@@ -325,9 +325,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 81373464}
+  settingsTextAnim: {fileID: 0}
   playButton: {fileID: 639808636}
   settingsButton: {fileID: 210194879}
   quitButton: {fileID: 399518215}
+  settingsMenu: {fileID: 0}
 --- !u!1001 &54631633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2467,7 +2469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &432212150
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16307,7 +16309,7 @@ MonoBehaviour:
     batEnemy: {fileID: 8655660252959750051, guid: 16ecccc9f56aebb4287eb396ef5e02c4, type: 3}
     count: 35
     rate: 1
-  nextWave: 29
+  nextWave: 0
   waveText: {fileID: 1096194835}
   spawnPoints:
   - {fileID: 1110004192}
@@ -19593,9 +19595,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 81373464}
+  settingsTextAnim: {fileID: 0}
   playButton: {fileID: 639808636}
   settingsButton: {fileID: 210194879}
   quitButton: {fileID: 399518215}
+  settingsMenu: {fileID: 0}
 --- !u!1 &1754583762
 GameObject:
   m_ObjectHideFlags: 0
@@ -26510,7 +26514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2047108061
 Transform:
   m_ObjectHideFlags: 0

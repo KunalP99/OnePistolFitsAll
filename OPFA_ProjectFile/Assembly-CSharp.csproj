@@ -77,13 +77,16 @@
     <Compile Include="Assets\Scripts\Ammo Types\RegularAmmo.cs" />
     <Compile Include="Assets\Scripts\Other\LetterBoxer.cs" />
     <Compile Include="Assets\Scripts\Enemies\BatAI.cs" />
+    <Compile Include="Assets\Scripts\Cutscenes\EndCutscene.cs" />
     <Compile Include="Assets\Scripts\Enemies\Big Projectiles\RightBigProjectile.cs" />
+    <Compile Include="Assets\Scripts\Menu\Main Menu\SettingsController.cs" />
     <Compile Include="Assets\Scripts\Enemies\Enemy Pistol\Enemy_Projectile.cs" />
     <Compile Include="Assets\Scripts\Items\HugePickup.cs" />
     <Compile Include="Assets\Scripts\Enemies\Boss\Boss_Move.cs" />
     <Compile Include="Assets\Scripts\Items\AmmoCrate.cs" />
     <Compile Include="Assets\Scripts\Enemies\Enemy Pistol\Enemy_Pistol.cs" />
     <Compile Include="Assets\Scripts\Enemies\Big Projectiles\UpBigProjectile.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Boss\End.cs" />
     <Compile Include="Assets\Scripts\Enemies\Boss\Boss_Health.cs" />
     <Compile Include="Assets\Scripts\Enemies\Big Projectiles\LeftBigProjectile.cs" />
     <Compile Include="Assets\Scripts\Timers\SmgSwitchTimer.cs" />
@@ -95,7 +98,7 @@
     <Compile Include="Assets\Scripts\Wave Spawners\PistolWaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Timers\DashCoutdownTimer.cs" />
     <Compile Include="Assets\Scripts\Ammo Types\HugeAmmo.cs" />
-    <Compile Include="Assets\Scripts\Menu\Main Menu\SettingsController.cs" />
+    <Compile Include="Assets\Scripts\Cutscenes\BatEndCutscene.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

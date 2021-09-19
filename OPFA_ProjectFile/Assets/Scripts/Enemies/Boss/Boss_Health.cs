@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Boss_Health : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class Boss_Health : MonoBehaviour
     [HideInInspector] public bool isProjectileRunning = false;
     public bool isSpreadProjectileRunning = false;
     public Boss_Pulse_Projectile pulseProjectile;
+
+    public GameObject deathParticle;
+    [HideInInspector] public bool isBossDead = false;
 
    void Start()
     {
@@ -86,12 +90,10 @@ public class Boss_Health : MonoBehaviour
 
     public void Death()
     {
-        Destroy(gameObject);
+        isBossDead = true;
 
-        // Wait for x amount of seconds
-        StartCoroutine(Wait(40f));
+        Instantiate(deathParticle, transform.position, Quaternion.identity);
 
-        // Move to next cut scene
-        Debug.Log("Game complete");
+        gameObject.SetActive(false);
     }
 }

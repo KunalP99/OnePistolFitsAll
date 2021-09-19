@@ -63,7 +63,6 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool hugeFound = false;
 
     bool isBossSpawned = false;
-    public WaveSpawner waveSpawner;
 
     public GameObject deathScreen;
     [HideInInspector] public bool isDead = false;
@@ -85,7 +84,6 @@ public class PlayerController : MonoBehaviour
 
             if (isBossSpawned == true)
             {
-                waveSpawner.enabled = false;
                 smgFound = true;
                 hugeFound = true;
                 dashUnlocked = true;

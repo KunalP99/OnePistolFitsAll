@@ -18,6 +18,7 @@ TagManager:
   - Boss_Projectile_Particles
   - Boss_Small_Projectile
   - WaveSpawner
+  - Boss_Small_Projectile_Particles
   layers:
   - Default
   - TransparentFX
