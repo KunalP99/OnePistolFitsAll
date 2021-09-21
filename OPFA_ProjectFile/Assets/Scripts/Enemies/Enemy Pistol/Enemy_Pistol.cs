@@ -25,6 +25,10 @@ public class Enemy_Pistol : MonoBehaviour
     public float hp;
     public float maxHp;
 
+    public AudioSource hitmarker;
+    public AudioSource fire;
+    public AudioSource reload;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +77,7 @@ public class Enemy_Pistol : MonoBehaviour
         {
             ammoAmount -= 1;
             Instantiate(projectile, firePoint.position, firePoint.rotation);
+            fire.Play();
             anim.SetTrigger("fire");
             timeBtwShots = startTimeBtwShots;
         }
@@ -83,6 +88,7 @@ public class Enemy_Pistol : MonoBehaviour
 
         if (timeBtwShots <= 0 && ammoAmount == 0)
         {
+            reload.Play();
             StartCoroutine(Reload());
         }
 
@@ -93,12 +99,14 @@ public class Enemy_Pistol : MonoBehaviour
         if (other.gameObject.tag == "Bullet")
         {
             TakeHit(25f);
+            hitmarker.Play();
             CameraShake.Instance.ShakeCamera(6f, 0.1f);
         }
 
         if (other.gameObject.tag == "Huge_Bullet")
         {
             TakeHit(50f);
+            hitmarker.Play();
             CameraShake.Instance.ShakeCamera(7f, 0.1f);
         }
     }

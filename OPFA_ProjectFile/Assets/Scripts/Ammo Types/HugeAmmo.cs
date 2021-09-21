@@ -20,6 +20,9 @@ public class HugeAmmo : MonoBehaviour
 
     public GameObject pauseMenu;
 
+    public AudioSource fire;
+    public AudioSource reload;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +45,7 @@ public class HugeAmmo : MonoBehaviour
             if (Input.GetButton("Fire1") && hugeAmmoAmount > 0 && Time.time >= nextTimeToFire && !pauseMenu.activeSelf)
             {
                 Shoot();
+                fire.Play();
                 hugeCurrentBullets--;
             }
 
@@ -49,11 +53,13 @@ public class HugeAmmo : MonoBehaviour
             if (Input.GetKey(KeyCode.R) && hugeAmmoAmount < 10)
             {
                 StartCoroutine(Reload());
+                reload.Play();
                 return;
             }
             else if (hugeAmmoAmount == 0 && hugeCurrentBullets > 0)
             {
                 StartCoroutine(Reload());
+                reload.Play();
                 return;
             }
         }

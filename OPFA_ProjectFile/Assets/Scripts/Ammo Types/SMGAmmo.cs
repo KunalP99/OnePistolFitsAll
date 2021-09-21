@@ -20,6 +20,9 @@ public class SMGAmmo : MonoBehaviour
 
     public GameObject pauseMenu;
 
+    public AudioSource fire;
+    public AudioSource reload;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +45,7 @@ public class SMGAmmo : MonoBehaviour
             if (Input.GetButton("Fire1") && smgAmmoAmount > 0 && Time.time >= nextTimeToFire && !pauseMenu.activeSelf)
             {
                 Shoot();
+                fire.Play();
                 smgCurrentBullets--;
             }
 
@@ -49,11 +53,13 @@ public class SMGAmmo : MonoBehaviour
             if (Input.GetKey(KeyCode.R) && smgAmmoAmount < 32)
             {
                 StartCoroutine(Reload());
+                reload.Play();
                 return;
             }
             else if (smgAmmoAmount == 0 && smgCurrentBullets > 0)
             {
                 StartCoroutine(Reload());
+                reload.Play();
                 return;
             }
         }

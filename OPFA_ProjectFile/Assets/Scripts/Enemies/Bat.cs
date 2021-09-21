@@ -15,12 +15,14 @@ public class Bat : MonoBehaviour
 
     BoxCollider2D bCollider;
     Rigidbody2D rb;
+    AudioSource hitmarker;
 
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
         bCollider = gameObject.GetComponent<BoxCollider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
+        hitmarker = gameObject.GetComponent<AudioSource>();
 
         GameObject pistol = GameObject.Find("Pistol");
         player = pistol.GetComponent<PlayerController>();
@@ -72,12 +74,14 @@ public class Bat : MonoBehaviour
 
         if (other.gameObject.tag == "Bullet")
         {
+            hitmarker.Play();
             TakeHit(50f);
             CameraShake.Instance.ShakeCamera(6f, 0.1f);
         }
 
         if (other.gameObject.tag == "Huge_Bullet")
         {
+            hitmarker.Play();
             TakeHit(100f);
             CameraShake.Instance.ShakeCamera(7f, 0.1f);
         }

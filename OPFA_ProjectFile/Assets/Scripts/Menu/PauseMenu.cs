@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject crosshair;
 
+    public AudioSource backgroundMusic;
+
     // Update is called once per frame
     void Update()
     {
@@ -29,6 +31,7 @@ public class PauseMenu : MonoBehaviour
     public void Continue()
     {
         pauseMenu.SetActive(false);
+        backgroundMusic.volume = 0.49f;
 
         crosshair.SetActive(true);
         Cursor.visible = false;
@@ -42,6 +45,7 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         pauseMenu.SetActive(true);
+        backgroundMusic.volume = 0.2f;
 
         crosshair.SetActive(false);
         Cursor.visible = true;

@@ -67,6 +67,8 @@ public class PlayerController : MonoBehaviour
     public GameObject deathScreen;
     [HideInInspector] public bool isDead = false;
 
+    public AudioSource dashSound;
+
     void Start()
     {
         playerCollider = gameObject.GetComponent<BoxCollider2D>();
@@ -112,6 +114,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q) && dashUnlocked == true)
             {
+                dashSound.Play();
                 nextDashTime = Time.time + cooldownTime;
 
                 isDashButtonDown = true;

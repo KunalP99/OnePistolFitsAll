@@ -8,6 +8,9 @@ public class Boss_Shoot : MonoBehaviour
     public GameObject spreadProjectile;
     public GameObject firePoint;
 
+    public AudioSource projectileFire;
+    public AudioSource smallProjectileFire;
+
     float randomSpeed;
 
     // Projectile spread
@@ -23,11 +26,14 @@ public class Boss_Shoot : MonoBehaviour
 
     void ShootProjectile()
     {
+        projectileFire.Play();
         Instantiate(projectile, firePoint.transform.position, firePoint.transform.rotation);
     }
 
     public void SpawnProjectile(int numberOfProjectiles)
     {
+        smallProjectileFire.Play();
+
         float angleStep = 360f / numberOfProjectiles;
         float angle = 0f;
 
@@ -48,6 +54,8 @@ public class Boss_Shoot : MonoBehaviour
 
     public void RandomSpreadProjectile(int numberOfProjectiles)
     {
+        smallProjectileFire.Play();
+
         float angleStep = 360f / numberOfProjectiles;
         float angle = 0f;
 

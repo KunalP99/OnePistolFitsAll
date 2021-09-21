@@ -18,6 +18,9 @@ public class RegularAmmo : MonoBehaviour
 
     public GameObject pauseMenu;
 
+    public AudioSource fire;
+    public AudioSource reload;
+
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -35,17 +38,20 @@ public class RegularAmmo : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && regularAmmoAmount > 0 && Time.time >= nextTimeToFire && !pauseMenu.activeSelf)
         {
             Shoot();
+            fire.Play();
         }
 
         // *RELOAD*
         if (Input.GetKey(KeyCode.R) && regularAmmoAmount < 8)
         {
             StartCoroutine(Reload());
+            reload.Play();
             return;
         }
         else if (regularAmmoAmount == 0)
         {
             StartCoroutine(Reload());
+            reload.Play();
             return;
         }
     }
