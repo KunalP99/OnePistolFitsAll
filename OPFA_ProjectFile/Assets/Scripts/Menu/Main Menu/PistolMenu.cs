@@ -9,6 +9,7 @@ public class PistolMenu : MonoBehaviour
     private float angle;
 
     public Animator anim;
+    public AudioSource fire;
 
     public void Update()
     {
@@ -20,6 +21,7 @@ public class PistolMenu : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+            fire.Play();
             anim.SetTrigger("fire");
         }
     }

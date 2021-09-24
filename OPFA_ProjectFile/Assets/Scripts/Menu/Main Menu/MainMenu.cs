@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public Animator anim;
-    public Animator settingsTextAnim;
 
     // Main menu variables
     public GameObject playButton;
+    public GameObject wavexButton;
     public GameObject settingsButton;
     public GameObject quitButton;
 
@@ -33,10 +33,16 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(LoadLevelFromMenu(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
+    public void BossLevel()
+    {
+        StartCoroutine(LoadLevelFromMenu(SceneManager.GetActiveScene().buildIndex + 3));
+    }
+
     public void Settings()
     {
         // Hide buttons main menu buttons and show settings objects
         playButton.SetActive(false);
+        wavexButton.SetActive(false);
         settingsButton.SetActive(false);
         quitButton.SetActive(false);
 
@@ -47,6 +53,7 @@ public class MainMenu : MonoBehaviour
     {
         // Hide settings objects and show main menu buttons
         playButton.SetActive(true);
+        wavexButton.SetActive(true);
         settingsButton.SetActive(true);
         quitButton.SetActive(true);
 
@@ -69,6 +76,7 @@ public class MainMenu : MonoBehaviour
     IEnumerator LoadLevelFromMenu(int LevelIndex)
     {
         playButton.SetActive(false);
+        wavexButton.SetActive(false);
         settingsButton.SetActive(false);
         quitButton.SetActive(false);
 

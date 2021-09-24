@@ -7,7 +7,7 @@ public class Boss_Projectile : MonoBehaviour
     private Rigidbody2D rb;
     private PlayerController player;
     private Boss_Shoot bossProjectile;
-    public ParticleSystem particles;
+    [HideInInspector] public ParticleSystem particles;
 
     public float randomSpeed;
 

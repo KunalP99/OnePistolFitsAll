@@ -17,6 +17,8 @@ public class Bat : MonoBehaviour
     Rigidbody2D rb;
     AudioSource hitmarker;
 
+    public AudioSource batDeath;
+
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -36,6 +38,7 @@ public class Bat : MonoBehaviour
 
         if (hp <= 0)
         {
+            batDeath.Play();
             Instantiate(bloodEffect, transform.position, Quaternion.identity);
             gameObject.GetComponent<BatAI>().speed = 0;
 
@@ -69,7 +72,7 @@ public class Bat : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            StartCoroutine(player.Knockback(0.5f, 1000f, this.transform));
+            StartCoroutine(player.Knockback(0.5f, 500f, this.transform));
         }
 
         if (other.gameObject.tag == "Bullet")

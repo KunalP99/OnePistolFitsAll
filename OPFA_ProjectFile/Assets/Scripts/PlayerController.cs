@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool isDead = false;
 
     public AudioSource dashSound;
+    public AudioSource weaponSwitchSound;
 
     void Start()
     {
@@ -131,6 +132,8 @@ public class PlayerController : MonoBehaviour
         // Pistol switch
         if (Input.GetKeyDown(KeyCode.Alpha1) && pistolPicked == true)
         {
+            weaponSwitchSound.Play();
+
             // Enabling and disabling ammo scripts on player object
             GetComponent<RegularAmmo>().enabled = true;
             GetComponent<SMGAmmo>().enabled = false;
@@ -155,6 +158,8 @@ public class PlayerController : MonoBehaviour
         // SMG switch
         if (Input.GetKeyDown(KeyCode.Alpha2) && smgPicked == true && smgFound == true)
         {
+            weaponSwitchSound.Play();
+
             GetComponent<RegularAmmo>().enabled = false;
             GetComponent<SMGAmmo>().enabled = true;
             GetComponent<HugeAmmo>().enabled = false;
@@ -177,6 +182,8 @@ public class PlayerController : MonoBehaviour
         // Huge switch
         if (Input.GetKeyDown(KeyCode.Alpha3) && hugePicked == true && hugeFound == true)
         {
+            weaponSwitchSound.Play();
+
             GetComponent<RegularAmmo>().enabled = false;
             GetComponent<SMGAmmo>().enabled = false;
             GetComponent<HugeAmmo>().enabled = true;

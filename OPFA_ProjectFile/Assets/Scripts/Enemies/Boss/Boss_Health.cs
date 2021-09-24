@@ -20,7 +20,9 @@ public class Boss_Health : MonoBehaviour
     public GameObject deathParticle;
     [HideInInspector] public bool isBossDead = false;
 
-   void Start()
+    public AudioSource hitmarker;
+
+    void Start()
     {
         currentHealth = maxHealth;
     }
@@ -64,6 +66,8 @@ public class Boss_Health : MonoBehaviour
 
     public void TakeHit(float damage)
     {
+        hitmarker.Play();
+
         currentHealth -= damage;
 
 
