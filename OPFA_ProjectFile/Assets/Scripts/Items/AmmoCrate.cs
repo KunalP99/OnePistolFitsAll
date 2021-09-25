@@ -6,6 +6,8 @@ public class AmmoCrate : MonoBehaviour
 {
     GameObject player;
 
+    public AudioClip ammoAudio;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -15,12 +17,14 @@ public class AmmoCrate : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && player.GetComponent<PlayerController>().smgFound == true)
         {
+            AudioSource.PlayClipAtPoint(ammoAudio, this.gameObject.transform.position);
             player.GetComponent<SMGAmmo>().smgCurrentBullets = 96;
             player.GetComponent<SMGAmmo>().StartCoroutine(player.GetComponent<SMGAmmo>().Reload());
             Destroy(gameObject);
         }
         else if (other.gameObject.tag == "Player" && player.GetComponent<PlayerController>().smgFound == true && player.GetComponent<PlayerController>().hugeFound == true)
         {
+            AudioSource.PlayClipAtPoint(ammoAudio, this.gameObject.transform.position);
             player.GetComponent<SMGAmmo>().smgCurrentBullets = 96;
             player.GetComponent<SMGAmmo>().StartCoroutine(player.GetComponent<SMGAmmo>().Reload());
             Destroy(gameObject);

@@ -3706,7 +3706,7 @@ MonoBehaviour:
   switchSmgParticleEffect: {fileID: 1274934377}
   switchHugeParticleEffect: {fileID: 658677342}
   dashParticleEffect: {fileID: 2005508121}
-  maxHealth: 300
+  maxHealth: 500
   currentHealth: 0
   healthBar: {fileID: 1350709592}
   dashTimer: {fileID: 1686665721}
@@ -15084,8 +15084,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 934, y: 136}
-  m_SizeDelta: {x: 233.74, y: 50.21}
+  m_AnchoredPosition: {x: 1004.31, y: 133.9}
+  m_SizeDelta: {x: 374.36, y: 54.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1044884665
 MonoBehaviour:
@@ -15107,7 +15107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press 'Q'
+  m_text: Press 'LSHIFT'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2693e8f233ec5694f90cae7a7be196cb, type: 2}
   m_sharedMaterial: {fileID: 6729793134038855025, guid: 2693e8f233ec5694f90cae7a7be196cb, type: 2}
@@ -17158,39 +17158,39 @@ MonoBehaviour:
     rate: 0.2
   - name: Wave 12
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 3
+    count: 2
     rate: 0.7
   - name: 'Wave 13 '
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 3
+    count: 2
     rate: 1
   - name: Wave 14
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 3
+    count: 2
     rate: 1
   - name: Wave 15
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 4
+    count: 2
     rate: 0.4
   - name: Wave 16
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 5
+    count: 3
     rate: 0.5
   - name: Wave 17
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 5
+    count: 3
     rate: 0.5
   - name: Wave 18
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 5
+    count: 3
     rate: 0.3
   - name: Wave 19
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 2
+    count: 3
     rate: 0.3
   - name: Wave 20
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 6
+    count: 3
     rate: 0.1
   - name: Wave 21
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
@@ -17202,15 +17202,15 @@ MonoBehaviour:
     rate: 0
   - name: Wave 23
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 5
+    count: 3
     rate: 0.2
   - name: Wave 24
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 7
+    count: 4
     rate: 0.3
   - name: Wave 25
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 7
+    count: 2
     rate: 0.7
   - name: Wave 26
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
@@ -17218,15 +17218,15 @@ MonoBehaviour:
     rate: 0
   - name: Wave 27
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 8
+    count: 3
     rate: 0.3
   - name: Wave 28
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 10
+    count: 3
     rate: 0.2
   - name: Wave 29
     pistolEnemy: {fileID: 8747686636914268579, guid: 954dd61a8298078488b901c7d0982c19, type: 3}
-    count: 10
+    count: 4
     rate: 0.5
   spawnPoints:
   - {fileID: 1110004192}

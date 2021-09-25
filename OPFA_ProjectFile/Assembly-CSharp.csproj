@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Ammo Types\SMGAmmo.cs" />
     <Compile Include="Assets\Scripts\Ammo Types\RegularAmmo.cs" />
     <Compile Include="Assets\Scripts\Other\LetterBoxer.cs" />
+    <Compile Include="Assets\Scripts\Cutscenes\BatEndCutscene.cs" />
     <Compile Include="Assets\Scripts\Enemies\BatAI.cs" />
     <Compile Include="Assets\Scripts\Cutscenes\EndCutscene.cs" />
     <Compile Include="Assets\Scripts\Enemies\Big Projectiles\RightBigProjectile.cs" />
@@ -98,7 +99,7 @@
     <Compile Include="Assets\Scripts\Wave Spawners\PistolWaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Timers\DashCoutdownTimer.cs" />
     <Compile Include="Assets\Scripts\Ammo Types\HugeAmmo.cs" />
-    <Compile Include="Assets\Scripts\Cutscenes\BatEndCutscene.cs" />
+    <Compile Include="Assets\Scripts\CursorMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

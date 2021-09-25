@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
         // *DASH* + cooldown
         if (Time.time > nextDashTime)
         {
-            if (Input.GetKeyDown(KeyCode.Q) && dashUnlocked == true)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && dashUnlocked == true)
             {
                 dashSound.Play();
                 nextDashTime = Time.time + cooldownTime;

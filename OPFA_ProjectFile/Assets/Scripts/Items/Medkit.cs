@@ -7,6 +7,8 @@ public class Medkit : MonoBehaviour
     GameObject player;
     GameObject healthBar;
 
+    public AudioClip healthItemAudio;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -17,7 +19,8 @@ public class Medkit : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            player.GetComponent<PlayerController>().currentHealth = 300;
+            AudioSource.PlayClipAtPoint(healthItemAudio, this.gameObject.transform.position);
+            player.GetComponent<PlayerController>().currentHealth = 500;
             healthBar.GetComponent<Health>().SetHealth(player.GetComponent<PlayerController>().currentHealth);
 
             Destroy(gameObject);
